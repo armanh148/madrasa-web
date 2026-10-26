@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
 import BooksSection from "@/components/BooksSection";
 import CampusMediaSection from "@/components/gallery/CampusMediaSection";
 import LibraryGallerySection from "@/components/gallery/LibraryGallerySection";
@@ -38,13 +37,12 @@ export default function Home() {
       <Hero
         onOpenAdmission={() => setIsAdmissionOpen(true)}
         onOpenContact={() => handleScrollToSection("contact")}
-        onExploreCourses={() => handleScrollToSection("about")}
+        onExploreCourses={() => {
+          window.location.href = "/policy";
+        }}
       />
 
-      {/* 3. تعارف (About Madrasa - Institutional Goals & Campus) */}
-      <About />
-
-      {/* 4. سیکشن ۱: مدرسے کی تصویریں اور ویڈیوز (Campus Bento Grid) */}
+      {/* 3. سیکشن ۱: مدرسے کی تصویریں اور ویڈیوز (Campus Bento Grid) */}
       <CampusMediaSection />
 
       {/* 5. سیکشن ۲: لائبریری کی تصویریں (Library Carousel Slider) */}
