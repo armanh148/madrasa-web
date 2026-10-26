@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { BookOpen, Sparkles, Star, Download, Eye, X, CheckCircle2, Search } from "lucide-react";
+import { BookOpen, Sparkles, Star, Eye, X, BookmarkCheck } from "lucide-react";
 
 interface Book {
   id: string;
@@ -79,15 +79,10 @@ export default function BooksSection() {
 
   return (
     <section id="books" className="py-20 sm:py-28 relative overflow-hidden bg-[#120A05] islamic-dark-pattern" dir="rtl">
-      {/* Ambient Radial Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[#C9B38D]/5 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-[#C9B38D]/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="w-full max-w-[1500px] mx-auto px-4 sm:px-8 relative z-10">
-
-        {/* ============================================================ */}
-        {/* Section Header with generous vertical spacing                */}
-        {/* ============================================================ */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#1A0E08]/90 border border-[#C9B38D]/40 text-[#C9B38D] text-xs sm:text-sm font-semibold backdrop-blur-md shadow-sm">
             <Sparkles className="w-4 h-4 text-[#C9B38D]" />
             <span className="font-urdu">علمی و تحقیقی ذخیرہ</span>
@@ -104,113 +99,101 @@ export default function BooksSection() {
           </p>
         </div>
 
-        {/* ============================================================ */}
-        {/* 5 Books Row (Matching User Screenshot Layout)                 */}
-        {/* ============================================================ */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 lg:gap-7 items-stretch">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-7 items-stretch">
           {books.map((book) => (
             <div
               key={book.id}
               onClick={() => setSelectedBook(book)}
-              className="group relative flex flex-col items-center p-3.5 sm:p-4 rounded-2xl bg-gradient-to-b from-[#1E110A]/90 to-[#140B06]/95 border border-[#C9B38D]/25 hover:border-[#C9B38D] shadow-[0_10px_30px_rgba(0,0,0,0.6)] hover:shadow-[0_15px_35px_rgba(201,179,141,0.25)] transition-all duration-300 hover:-translate-y-1.5 cursor-pointer"
+              className="group relative flex flex-col justify-between p-5 rounded-3xl bg-gradient-to-b from-[#1C1009] via-[#160B06] to-[#100703] border border-[#C9B38D]/25 hover:border-[#C9B38D] shadow-[0_15px_35px_rgba(0,0,0,0.7)] hover:shadow-[0_20px_45px_rgba(201,179,141,0.3)] transition-all duration-500 hover:-translate-y-2 cursor-pointer"
             >
-              {/* Category Pill Tag */}
-              <div className="w-full flex justify-between items-center mb-2.5">
-                <span className="text-[10px] sm:text-xs font-urdu font-semibold text-[#C9B38D] bg-[#1A0E08] px-2.5 py-0.5 rounded-full border border-[#C9B38D]/30">
-                  {book.category}
-                </span>
-                <span className="text-[10px] text-stone-400 font-urdu">
-                  {book.pages} صفحات
-                </span>
-              </div>
-
-              {/* Book Cover Image Container */}
-              <div className="relative w-full aspect-[3/4] rounded-xl overflow-hidden bg-[#0A0503] border border-[#C9B38D]/30 shadow-inner group-hover:border-[#C9B38D] transition-colors mb-3">
-                <Image
-                  src={book.coverImage}
-                  alt={book.title}
-                  fill
-                  className="object-contain p-1 group-hover:scale-105 transition-transform duration-300"
-                  sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 18vw"
-                />
-                {/* Subtle Hover Overlay */}
-                <div className="absolute inset-0 bg-[#120A05]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[1px]">
-                  <span className="px-3 py-1.5 rounded-full bg-white text-[#120A05] font-urdu font-bold text-xs border border-[#C9B38D] shadow-lg flex items-center gap-1">
-                    <Eye className="w-3.5 h-3.5 text-[#8C6D3F]" />
-                    <span>مطالعہ کریں</span>
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-[11px] font-urdu font-semibold text-[#C9B38D] bg-[#24130A] px-3 py-1 rounded-full border border-[#C9B38D]/30">
+                    {book.category}
+                  </span>
+                  <span className="text-[11px] font-urdu text-stone-400">
+                    {book.pages} صفحات
                   </span>
                 </div>
-              </div>
 
-              {/* Book Title */}
-              <h3 className="font-urdu font-bold text-white text-sm sm:text-base text-center leading-[1.8] group-hover:text-[#D9C7A7] transition-colors line-clamp-2 min-h-[46px] flex items-center justify-center">
-                {book.title}
-              </h3>
+                <div className="relative w-full aspect-[1/1.35] max-w-[190px] mx-auto mb-5 rounded-lg overflow-hidden shadow-[0_12px_28px_rgba(0,0,0,0.85)] group-hover:shadow-[0_16px_36px_rgba(201,179,141,0.35)] transition-all duration-500 group-hover:scale-105 bg-[#0D0603] border-r-2 border-stone-800">
+                  <Image
+                    src={book.coverImage}
+                    alt={book.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 20vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/20 pointer-events-none" />
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[1px]">
+                    <span className="w-10 h-10 rounded-full bg-white text-[#120A05] border border-[#C9B38D] flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform">
+                      <Eye className="w-5 h-5 text-[#8C6D3F]" />
+                    </span>
+                  </div>
+                </div>
 
-              {/* Author Name */}
-              <p className="text-xs text-[#C9B38D] font-urdu text-center mt-1 truncate w-full">
-                {book.author}
-              </p>
-
-              {/* Star Rating Section (Matching Screenshot) */}
-              <div className="flex items-center justify-center gap-1 mt-2.5 pt-2 border-t border-[#C9B38D]/15 w-full">
-                <span className="text-xs font-mono font-bold text-stone-300 ml-1">
-                  {book.rating}.0
-                </span>
-                <div className="flex text-[#C9B38D]">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-3.5 h-3.5 fill-[#C9B38D] text-[#C9B38D]"
-                    />
-                  ))}
+                <div className="text-center">
+                  <h3 className="font-urdu font-bold text-white text-base sm:text-lg leading-[1.8] group-hover:text-[#D9C7A7] transition-colors min-h-[52px] flex items-center justify-center">
+                    {book.title}
+                  </h3>
+                  <p className="text-xs font-urdu text-[#C9B38D] mt-1 truncate">
+                    {book.author}
+                  </p>
                 </div>
               </div>
 
-              {/* Read Action Button */}
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setSelectedBook(book);
-                }}
-                className="w-full mt-3 h-8 sm:h-9 rounded-full bg-white hover:bg-stone-100 text-[#120A05] border border-[#C9B38D] font-urdu font-bold text-xs flex items-center justify-center gap-1.5 shadow-sm transition active:scale-95"
-              >
-                <BookOpen className="w-3.5 h-3.5 text-[#8C6D3F]" />
-                <span>کتاب دیکھیں</span>
-              </button>
+              <div className="mt-5 pt-3 border-t border-[#C9B38D]/20">
+                <div className="flex items-center justify-center gap-1 mb-3">
+                  <span className="text-xs font-mono font-bold text-stone-300 ml-1">
+                    {book.rating}.0
+                  </span>
+                  <div className="flex text-[#C9B38D]">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-3.5 h-3.5 fill-[#C9B38D] text-[#C9B38D]" />
+                    ))}
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedBook(book);
+                  }}
+                  className="w-full h-10 rounded-full bg-white hover:bg-stone-100 text-[#120A05] border-2 border-[#C9B38D] font-urdu font-bold text-xs flex items-center justify-center gap-2 shadow-md transition-all active:scale-95"
+                >
+                  <BookOpen className="w-4 h-4 text-[#8C6D3F]" />
+                  <span>مطالعہ و تفصیلات</span>
+                </button>
+              </div>
             </div>
           ))}
         </div>
 
-        {/* Bottom Banner Note */}
-        <div className="mt-12 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-[#1A0E08]/80 via-[#24140B]/90 to-[#1A0E08]/80 border border-[#C9B38D]/30 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-right shadow-lg">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#120A05] border border-[#C9B38D]/40 flex items-center justify-center shrink-0">
-              <BookOpen className="w-5 h-5 text-[#C9B38D]" />
+        <div className="mt-12 p-5 sm:p-6 rounded-3xl bg-gradient-to-r from-[#1A0E08] via-[#24130A] to-[#1A0E08] border border-[#C9B38D]/30 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-right shadow-xl">
+          <div className="flex items-center gap-3.5">
+            <div className="w-12 h-12 rounded-2xl bg-[#120A05] border border-[#C9B38D]/40 flex items-center justify-center shrink-0 shadow">
+              <BookmarkCheck className="w-6 h-6 text-[#C9B38D]" />
             </div>
             <div>
-              <h4 className="font-urdu font-bold text-white text-sm sm:text-base">
+              <h4 className="font-urdu font-bold text-white text-base sm:text-lg">
                 مدرسہ صاحب الزمان لائبریری میں ۲۵,۰۰۰ سے زائد کتب دستیاب ہیں
               </h4>
-              <p className="font-urdu text-xs sm:text-sm text-stone-300 mt-0.5 leading-[2.0]">
-                طلبہ اور محققین حضرات لائبریری وزٹ کر کے اصل کتب سے استفادہ حاصل کر سکتے ہیں۔
+              <p className="font-urdu text-xs sm:text-sm text-stone-300 mt-1 leading-[2.0]">
+                طلبہ اور محققین حضرات لائبریری وزٹ کر کے اصل کتب اور نایاب نسخوں سے استفادہ حاصل کر سکتے ہیں۔
               </p>
             </div>
           </div>
 
           <a
             href="#contact"
-            className="inline-flex items-center justify-center h-10 px-6 rounded-full bg-white hover:bg-stone-100 text-[#120A05] border border-[#C9B38D] font-urdu font-bold text-xs sm:text-sm shrink-0 shadow-md transition active:scale-95"
+            className="inline-flex items-center justify-center h-11 px-7 rounded-full bg-white hover:bg-stone-100 text-[#120A05] border-2 border-[#C9B38D] font-urdu font-bold text-sm shrink-0 shadow-lg transition active:scale-95"
           >
             لائبریری کی معلومات لیں
           </a>
         </div>
-
       </div>
 
-      {/* ============================================================ */}
-      {/* Book Detail Modal Popup                                       */}
-      {/* ============================================================ */}
       {selectedBook && (
         <div
           className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 animate-fadeIn"
@@ -221,7 +204,6 @@ export default function BooksSection() {
             onClick={(e) => e.stopPropagation()}
             dir="rtl"
           >
-            {/* Close Button */}
             <button
               onClick={() => setSelectedBook(null)}
               className="absolute top-4 left-4 w-9 h-9 rounded-full bg-[#120A05] hover:bg-[#2A170E] border border-[#C9B38D]/40 text-stone-300 hover:text-white flex items-center justify-center transition"
@@ -231,17 +213,15 @@ export default function BooksSection() {
             </button>
 
             <div className="flex flex-col sm:flex-row gap-5 items-center sm:items-start text-center sm:text-right mt-2">
-              {/* Modal Cover Image */}
               <div className="relative w-36 h-48 sm:w-44 sm:h-56 rounded-xl overflow-hidden bg-[#0A0503] border border-[#C9B38D]/40 shrink-0 shadow-xl">
                 <Image
                   src={selectedBook.coverImage}
                   alt={selectedBook.title}
                   fill
-                  className="object-contain p-1"
+                  className="object-cover"
                 />
               </div>
 
-              {/* Details */}
               <div className="flex-1 flex flex-col">
                 <div className="inline-block self-center sm:self-start px-3 py-1 rounded-full bg-[#1A0E08] text-[11px] font-urdu font-semibold text-[#C9B38D] border border-[#C9B38D]/30 mb-2">
                   {selectedBook.category}
@@ -255,7 +235,6 @@ export default function BooksSection() {
                   مصنف: {selectedBook.author}
                 </p>
 
-                {/* Rating */}
                 <div className="flex items-center justify-center sm:justify-start gap-1.5 my-2.5">
                   <div className="flex text-[#C9B38D]">
                     {[...Array(5)].map((_, i) => (
@@ -271,7 +250,6 @@ export default function BooksSection() {
                   {selectedBook.description}
                 </p>
 
-                {/* Info tags */}
                 <div className="mt-4 pt-3 border-t border-[#C9B38D]/20 flex items-center justify-around text-xs font-urdu text-stone-300">
                   <span>صفحات: <b className="text-white">{selectedBook.pages}</b></span>
                   <span>زبان: <b className="text-white">اردو</b></span>
@@ -280,12 +258,11 @@ export default function BooksSection() {
               </div>
             </div>
 
-            {/* Modal Actions */}
             <div className="mt-6 pt-4 border-t border-[#C9B38D]/30 flex flex-wrap gap-3">
               <a
                 href="#contact"
                 onClick={() => setSelectedBook(null)}
-                className="flex-1 h-11 rounded-full bg-white hover:bg-stone-100 text-[#120A05] border border-[#C9B38D] font-urdu font-bold text-sm flex items-center justify-center gap-2 shadow-md transition active:scale-95"
+                className="flex-1 h-11 rounded-full bg-white hover:bg-stone-100 text-[#120A05] border-2 border-[#C9B38D] font-urdu font-bold text-sm flex items-center justify-center gap-2 shadow-md transition active:scale-95"
               >
                 <BookOpen className="w-4 h-4 text-[#8C6D3F]" />
                 <span>مطالعہ و معلومات کے لیے رابطہ کریں</span>
