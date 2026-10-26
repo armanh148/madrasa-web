@@ -320,6 +320,8 @@ export default function HistoryStaffPage() {
         </div>
       </div>
 
+      <FounderSection />
+
       <section className="py-20 sm:py-28 bg-[#120A05] islamic-dark-pattern relative overflow-hidden">
         <div className="w-full max-w-[1500px] mx-auto px-4 sm:px-8 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
