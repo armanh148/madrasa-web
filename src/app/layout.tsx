@@ -3,10 +3,19 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "مدرسہ صاحب الزمان (عج) | دینی و عصری علوم کا بین الاقوامی مرکز",
-  description: "مدرسہ صاحب الزمان (عجل اللہ تعالیٰ فرجہ الشریف) - حوزہ علمیہ، حفظ و تجوید، شعبہ خواتین اور دسترخوان امام زمانہ (عج)",
-  keywords: ["مدرسہ", "صاحب الزمان", "حوزہ علمیہ", "دینی تعلیم", "شعبہ خواتین", "دسترخوان امام زمانہ"],
+  description: "مدرسہ صاحب الزمان (عجل اللہ تعالیٰ فرجہ الشریف) - پلاٹ بی 25، احسن آباد 3، گلزار ہجری، اسکیم 33، کراچی، پاکستان۔ حوزوی تعلیم، ناظرہ، خطابت، کمپیوٹر لیب اور ہاسٹل سہولیات۔",
+  keywords: [
+    "مدرسہ صاحب الزمان",
+    "صاحب الزمان",
+    "حوزہ علمیہ کراچی",
+    "داخلے جاری ہیں",
+    "احسن آباد کراچی",
+    "دینی تعلیم",
+    "حفظ و ناظرہ",
+    "کمپیوٹر لیب"
+  ],
   icons: {
-    icon: "/images/logo.png",
+    icon: "/images/madarsa-logo.png",
   },
 };
 
@@ -21,11 +30,11 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Outfit:wght@400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@400;600;700;800;900&family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Outfit:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-screen bg-[#120907] text-[#FAF6F0] selection:bg-[#D4AF37] selection:text-[#1A0F0D]">
+      <body className="min-h-screen bg-[#070E18] text-[#F8FAFC] selection:bg-[#E5A93C] selection:text-[#070E18] antialiased">
         {children}
       </body>
     </html>

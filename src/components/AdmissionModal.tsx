@@ -18,9 +18,9 @@ export default function AdmissionModal({ isOpen, onClose, defaultCourse }: Admis
     gender: "طالب علم (مرد)",
     phone: "",
     city: "",
-    selectedCourse: defaultCourse || coursesData[0].title,
-    previousEducation: "میٹرک / مڈل",
-    residenceType: "رہائشی (ہاسٹل کے ساتھ)",
+    selectedCourse: defaultCourse || coursesData?.[0]?.title || "حوزوی تعلیم (درسِ نظامی ۵ سالہ)",
+    previousEducation: "چھٹی جماعت پاس",
+    residenceType: "رہائشی (ہاسٹل و طعام کے ساتھ)",
     message: "",
   });
 
@@ -48,230 +48,238 @@ export default function AdmissionModal({ isOpen, onClose, defaultCourse }: Admis
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm overflow-y-auto">
-      <div className="relative w-full max-w-2xl bg-[#1A0F0D] border-2 border-[#D4AF37] rounded-3xl p-6 sm:p-8 shadow-2xl my-8">
-        {/* Close Button */}
-        <button
-          onClick={onClose}
-          className="absolute top-5 left-5 p-2 rounded-xl bg-[#2E1B15] text-[#FAF6F0] hover:text-[#D4AF37] hover:bg-[#3E2723] transition"
-        >
-          <X className="w-5 h-5" />
-        </button>
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/85 backdrop-blur-md overflow-y-auto animate-fadeIn">
+      <div className="bg-gradient-to-b from-[#EFE5D2] via-[#C9B38D] to-[#876F4B] p-[2px] rounded-[32px] shadow-[0_25px_60px_rgba(0,0,0,0.9)] w-full max-w-2xl my-6">
+        <div className="relative w-full bg-gradient-to-b from-[#1E110A] to-[#120A05] rounded-[30px] p-6 sm:p-8">
+          
+          {/* Close Button */}
+          <button
+            onClick={onClose}
+            className="absolute top-5 left-5 p-2 rounded-full bg-white/10 text-white hover:text-[#C9B38D] hover:bg-white/20 transition"
+            aria-label="بند کریں"
+          >
+            <X className="w-5 h-5" />
+          </button>
 
-        {!submitted ? (
-          <div>
-            <div className="text-center mb-6">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#2E1B15] text-xs text-[#D4AF37] border border-[#D4AF37]/30 mb-2">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>تعلیمی سال ۲۰۲۶ - ۲۰۲۷</span>
-              </div>
-              <h3 className="text-2xl sm:text-3xl font-bold text-[#FAF6F0] font-heading">
-                آن لائن درخواستِ داخلہ فارم
-              </h3>
-              <p className="text-xs sm:text-sm text-[#FAF6F0]/70 mt-1">
-                مدرسہ صاحب الزمان (عجل اللہ تعالیٰ فرجہ الشریف) میں داخلہ کے لیے معلومات درج فرمائیں
-              </p>
-            </div>
-
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-semibold text-[#F3E5AB] mb-1">
-                    نام امیدوار *
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="مثال: علی رضا"
-                    value={formData.fullName}
-                    onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-[#251510] border border-[#4E3227] text-[#FAF6F0] text-sm focus:border-[#D4AF37] focus:outline-none"
-                  />
+          {!submitted ? (
+            <div>
+              <div className="text-center mb-6">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1A0E08] text-xs font-urdu font-semibold text-[#C9B38D] border border-[#C9B38D]/40 mb-2">
+                  <Sparkles className="w-3.5 h-3.5 text-[#C9B38D]" />
+                  <span>تعلیمی سال ۲۰۲۶ - ۲۰۲۷ (داخلے جاری ہیں)</span>
                 </div>
-
-                <div>
-                  <label className="block text-xs font-semibold text-[#F3E5AB] mb-1">
-                    والد / سرپرست کا نام *
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="مثال: محمد رضا"
-                    value={formData.fatherName}
-                    onChange={(e) => setFormData({ ...formData, fatherName: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-[#251510] border border-[#4E3227] text-[#FAF6F0] text-sm focus:border-[#D4AF37] focus:outline-none"
-                  />
-                </div>
+                <h3 className="text-2xl sm:text-3xl font-urdu font-bold text-white">
+                  آن لائن درخواستِ داخلہ فارم
+                </h3>
+                <p className="text-xs sm:text-sm text-stone-300 font-urdu mt-1.5 leading-[2.2]">
+                  مدرسہ صاحب الزمان (عجل اللہ تعالیٰ فرجہ الشریف) میں داخلہ کے لیے معلومات درج فرمائیں
+                </p>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <div>
-                  <label className="block text-xs font-semibold text-[#F3E5AB] mb-1">
-                    جنس *
-                  </label>
-                  <select
-                    value={formData.gender}
-                    onChange={(e) => setFormData({ ...formData, gender: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-[#251510] border border-[#4E3227] text-[#FAF6F0] text-sm focus:border-[#D4AF37] focus:outline-none"
-                  >
-                    <option value="طالب علم (مرد)">طالب علم (مرد)</option>
-                    <option value="طالبہ (خاتون - کیمپس زہراء)">طالبہ (خاتون - کیمپس زہراء)</option>
-                  </select>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-urdu font-semibold text-stone-200 mb-1">
+                      نام امیدوار *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="مثال: علی رضا"
+                      value={formData.fullName}
+                      onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#1A0E08] border border-[#C9B38D]/20 text-white text-sm font-urdu focus:border-[#C9B38D] focus:bg-[#22130B] focus:outline-none placeholder:text-stone-500 transition"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-urdu font-semibold text-stone-200 mb-1">
+                      والد / سرپرست کا نام *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="مثال: محمد رضا"
+                      value={formData.fatherName}
+                      onChange={(e) => setFormData({ ...formData, fatherName: e.target.value })}
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#1A0E08] border border-[#C9B38D]/20 text-white text-sm font-urdu focus:border-[#C9B38D] focus:bg-[#22130B] focus:outline-none placeholder:text-stone-500 transition"
+                    />
+                  </div>
                 </div>
 
-                <div>
-                  <label className="block text-xs font-semibold text-[#F3E5AB] mb-1">
-                    عمر (سال) *
-                  </label>
-                  <input
-                    type="number"
-                    required
-                    min="8"
-                    max="60"
-                    placeholder="مثال: 16"
-                    value={formData.age}
-                    onChange={(e) => setFormData({ ...formData, age: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-[#251510] border border-[#4E3227] text-[#FAF6F0] text-sm focus:border-[#D4AF37] focus:outline-none"
-                  />
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <div>
+                    <label className="block text-xs font-urdu font-semibold text-stone-200 mb-1">
+                      جنس *
+                    </label>
+                    <select
+                      value={formData.gender}
+                      onChange={(e) => setFormData({ ...formData, gender: e.target.value })}
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#1A0E08] border border-[#C9B38D]/20 text-white text-sm font-urdu focus:border-[#C9B38D] focus:bg-[#22130B] focus:outline-none cursor-pointer"
+                    >
+                      <option value="طالب علم (مرد)" className="bg-[#1A0E08]">طالب علم (مرد)</option>
+                      <option value="طالبہ (خاتون - کیمپس زہراء)" className="bg-[#1A0E08]">طالبہ (خاتون - جامعہ زہراء)</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-urdu font-semibold text-stone-200 mb-1">
+                      عمر (سال) *
+                    </label>
+                    <input
+                      type="number"
+                      required
+                      min="10"
+                      max="65"
+                      placeholder="مثال: 14"
+                      value={formData.age}
+                      onChange={(e) => setFormData({ ...formData, age: e.target.value })}
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#1A0E08] border border-[#C9B38D]/20 text-white text-sm focus:border-[#C9B38D] focus:bg-[#22130B] focus:outline-none placeholder:text-stone-500 transition"
+                      dir="ltr"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-urdu font-semibold text-stone-200 mb-1">
+                      شہر / علاقہ *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="مثال: کراچی / لاہور"
+                      value={formData.city}
+                      onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#1A0E08] border border-[#C9B38D]/20 text-white text-sm font-urdu focus:border-[#C9B38D] focus:bg-[#22130B] focus:outline-none placeholder:text-stone-500 transition"
+                    />
+                  </div>
                 </div>
 
-                <div>
-                  <label className="block text-xs font-semibold text-[#F3E5AB] mb-1">
-                    شہر / علاقہ *
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="مثال: لاہور، کراچی، گلگت"
-                    value={formData.city}
-                    onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-[#251510] border border-[#4E3227] text-[#FAF6F0] text-sm focus:border-[#D4AF37] focus:outline-none"
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-semibold text-[#F3E5AB] mb-1">
-                    موبائل / واٹس ایپ نمبر *
-                  </label>
-                  <input
-                    type="tel"
-                    required
-                    placeholder="03001234567"
-                    dir="ltr"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-[#251510] border border-[#4E3227] text-[#FAF6F0] text-sm focus:border-[#D4AF37] focus:outline-none text-right"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-semibold text-[#F3E5AB] mb-1">
-                    مطلوبہ شعبہ / کورس *
-                  </label>
-                  <select
-                    value={formData.selectedCourse}
-                    onChange={(e) => setFormData({ ...formData, selectedCourse: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-[#251510] border border-[#4E3227] text-[#FAF6F0] text-sm focus:border-[#D4AF37] focus:outline-none"
-                  >
-                    {coursesData.map((c) => (
-                      <option key={c.id} value={c.title}>
-                        {c.title}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-urdu font-semibold text-stone-200 mb-1">
+                      مطلوبہ شعبہ / کورس *
+                    </label>
+                    <select
+                      value={formData.selectedCourse}
+                      onChange={(e) => setFormData({ ...formData, selectedCourse: e.target.value })}
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#1A0E08] border border-[#C9B38D]/20 text-white text-sm font-urdu focus:border-[#C9B38D] focus:bg-[#22130B] focus:outline-none cursor-pointer"
+                    >
+                      {(coursesData || []).map((course) => (
+                        <option key={course.id} value={course.title} className="bg-[#1A0E08]">
+                          {course.title}
+                        </option>
+                      ))}
+                      <option value="شعبہ خواتین (جامعہ سیدہ فاطمہ الزہراء)" className="bg-[#1A0E08]">
+                        شعبہ خواتین (جامعہ سیدہ فاطمہ الزہراء)
                       </option>
-                    ))}
-                    <option value="شعبہ خواتین (جامعہ سیدہ فاطمہ الزہراء)">
-                      شعبہ خواتین (جامعہ سیدہ فاطمہ الزہراء)
-                    </option>
-                  </select>
-                </div>
-              </div>
+                    </select>
+                  </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-semibold text-[#F3E5AB] mb-1">
-                    سابقہ تعلیمی قابلیت
-                  </label>
-                  <select
-                    value={formData.previousEducation}
-                    onChange={(e) => setFormData({ ...formData, previousEducation: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-[#251510] border border-[#4E3227] text-[#FAF6F0] text-sm focus:border-[#D4AF37] focus:outline-none"
-                  >
-                    <option value="پرائمری / مڈل">پرائمری / مڈل</option>
-                    <option value="میٹرک">میٹرک</option>
-                    <option value="انٹر میڈیٹ (FA/FSc)">انٹر میڈیٹ (FA/FSc)</option>
-                    <option value="گریجویشن (BA/BSc/BS)">گریجویشن (BA/BSc/BS)</option>
-                    <option value="دیگر دینی اسناد">دیگر دینی اسناد</option>
-                  </select>
+                  <div>
+                    <label className="block text-xs font-urdu font-semibold text-stone-200 mb-1">
+                      واٹس ایپ / رابطہ نمبر *
+                    </label>
+                    <input
+                      type="tel"
+                      required
+                      placeholder="0300-1234567"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#1A0E08] border border-[#C9B38D]/20 text-white text-sm focus:border-[#C9B38D] focus:bg-[#22130B] focus:outline-none placeholder:text-stone-500 transition"
+                      dir="ltr"
+                    />
+                  </div>
                 </div>
 
-                <div>
-                  <label className="block text-xs font-semibold text-[#F3E5AB] mb-1">
-                    رہائش کی ضرورت
-                  </label>
-                  <select
-                    value={formData.residenceType}
-                    onChange={(e) => setFormData({ ...formData, residenceType: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-[#251510] border border-[#4E3227] text-[#FAF6F0] text-sm focus:border-[#D4AF37] focus:outline-none"
-                  >
-                    <option value="رہائشی (مفت ہاسٹل و طعام)">رہائشی (مفت ہاسٹل و طعام)</option>
-                    <option value="غیر رہائشی (ڈے اسکالر)">غیر رہائشی (ڈے اسکالر)</option>
-                    <option value="آن لائن / فاصلاتی">آن لائن / فاصلاتی تعلیم</option>
-                  </select>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-urdu font-semibold text-stone-200 mb-1">
+                      سابقہ تعلیمی قابلیت
+                    </label>
+                    <select
+                      value={formData.previousEducation}
+                      onChange={(e) => setFormData({ ...formData, previousEducation: e.target.value })}
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#1A0E08] border border-[#C9B38D]/20 text-white text-sm font-urdu focus:border-[#C9B38D] focus:bg-[#22130B] focus:outline-none cursor-pointer"
+                    >
+                      <option value="چھٹی جماعت پاس" className="bg-[#1A0E08]">چھٹی جماعت پاس (اہل برائے پانچ سالہ کورس)</option>
+                      <option value="مڈل / آٹھویں پاس" className="bg-[#1A0E08]">مڈل / آٹھویں پاس</option>
+                      <option value="میٹرک (Matric)" className="bg-[#1A0E08]">میٹرک (Matric)</option>
+                      <option value="انٹرمیڈیٹ (FA / FSc)" className="bg-[#1A0E08]">انٹرمیڈیٹ (FA / FSc)</option>
+                      <option value="گریجویشن (BA / BS)" className="bg-[#1A0E08]">گریجویشن (BA / BS)</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-urdu font-semibold text-stone-200 mb-1">
+                      طریقہ تعلیم / رہائش
+                    </label>
+                    <select
+                      value={formData.residenceType}
+                      onChange={(e) => setFormData({ ...formData, residenceType: e.target.value })}
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#1A0E08] border border-[#C9B38D]/20 text-white text-sm font-urdu focus:border-[#C9B38D] focus:bg-[#22130B] focus:outline-none cursor-pointer"
+                    >
+                      <option value="رہائشی (ہاسٹل و طعام)" className="bg-[#1A0E08]">رہائشی (ہاسٹل و ۳ وقت طعام)</option>
+                      <option value="غیر رہائشی (ڈے اسکالر)" className="bg-[#1A0E08]">غیر رہائشی (ڈے اسکالر)</option>
+                      <option value="آن لائن / فاصلاتی" className="bg-[#1A0E08]">آن لائن / فاصلاتی کلاسز</option>
+                    </select>
+                  </div>
                 </div>
+
+                <div>
+                  <label className="block text-xs font-urdu font-semibold text-stone-200 mb-1">
+                    کوئی اضافی تفصیل یا پیغام (اختیاری)
+                  </label>
+                  <textarea
+                    rows={2}
+                    placeholder="کوئی خاص معلومات جو آپ شیئر کرنا چاہیں..."
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    className="w-full px-3.5 py-2 rounded-xl bg-[#1A0E08] border border-[#C9B38D]/20 text-white text-sm font-urdu focus:border-[#C9B38D] focus:bg-[#22130B] focus:outline-none placeholder:text-stone-500 resize-none transition"
+                  />
+                </div>
+
+                <div className="pt-2">
+                  <button
+                    type="submit"
+                    className="w-full inline-flex items-center justify-center gap-2.5 h-12 px-7 rounded-full bg-white hover:bg-stone-100 text-[#120A05] border-2 border-[#C9B38D] font-urdu font-bold text-base shadow-lg transition-all duration-300 active:scale-95"
+                  >
+                    <Send className="w-4 h-4 text-[#C9B38D]" />
+                    <span>درخواست داخلہ جمع کرائیں</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          ) : (
+            <div className="text-center py-8 space-y-5 animate-fadeIn">
+              <div className="w-16 h-16 rounded-full bg-[#1A0E08] border-2 border-[#C9B38D] text-[#C9B38D] flex items-center justify-center mx-auto shadow-[0_0_20px_rgba(201,179,141,0.4)]">
+                <CheckCircle className="w-9 h-9" />
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-[#F3E5AB] mb-1">
-                  کوئی اضافی تفصیل یا پیغام (اختیاری)
-                </label>
-                <textarea
-                  rows={2}
-                  placeholder="کوئی خاص معلومات جو آپ فراہم کرنا چاہیں..."
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full px-3.5 py-2 rounded-xl bg-[#251510] border border-[#4E3227] text-[#FAF6F0] text-sm focus:border-[#D4AF37] focus:outline-none resize-none"
-                />
+                <h3 className="text-2xl font-urdu font-bold text-white">
+                  درخواستِ داخلہ کامیابی سے موصول ہو گئی ہے!
+                </h3>
+                <p className="text-sm text-stone-300 font-urdu mt-2 leading-[2.2]">
+                  مدرسہ انتظامیہ کی جانب سے جلد آپ کے واٹس ایپ / فون نمبر پر ٹیسٹ و انٹرویو کی تاریخ کے لیے رابطہ کیا جائے گا۔
+                </p>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-[#1A0E08] border border-[#C9B38D]/40 max-w-sm mx-auto shadow-md">
+                <span className="text-xs font-urdu text-stone-400 block">آپ کا درخواست نمبر (Application ID):</span>
+                <span className="text-xl font-bold font-mono text-[#C9B38D] tracking-wider mt-1 block" dir="ltr">
+                  {appId}
+                </span>
               </div>
 
               <button
-                type="submit"
-                className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-[#D4AF37] via-[#F3E5AB] to-[#C5A059] text-[#1A0F0D] font-bold py-3.5 px-6 rounded-xl shadow-gold-glow hover:scale-[1.02] transition-transform text-base"
-              >
-                <Send className="w-4 h-4" />
-                <span>درخواست جمع کروائیں</span>
-              </button>
-            </form>
-          </div>
-        ) : (
-          <div className="py-8 text-center space-y-4">
-            <div className="w-16 h-16 rounded-full bg-green-500/20 border-2 border-green-500 flex items-center justify-center mx-auto text-green-400">
-              <CheckCircle className="w-8 h-8" />
-            </div>
-
-            <h3 className="text-2xl font-bold text-[#FAF6F0]">
-              درخواستِ داخلہ موصول ہو چکی ہے!
-            </h3>
-
-            <p className="text-sm text-[#FAF6F0]/80 max-w-md mx-auto leading-relaxed">
-              محترم <span className="text-[#D4AF37] font-bold">{formData.fullName}</span>! آپ کی آن لائن درخواست برائے داخلہ موصول ہو چکی ہے۔ شعبہ داخلہ جلد ہی آپ کے فون نمبر پر رابطہ کرے گا۔
-            </p>
-
-            <div className="inline-block p-4 rounded-xl bg-[#251510] border border-[#D4AF37]/40">
-              <span className="text-xs text-[#FAF6F0]/60 block mb-1">درخواست نمبر (Application ID)</span>
-              <span className="font-mono text-xl font-bold text-[#D4AF37] tracking-widest">{appId}</span>
-            </div>
-
-            <div className="pt-4">
-              <button
                 onClick={handleReset}
-                className="bg-[#2E1B15] hover:bg-[#3E2723] text-[#D4AF37] border border-[#D4AF37]/50 font-bold px-8 py-2.5 rounded-xl transition text-sm"
+                className="inline-flex items-center justify-center h-11 px-8 rounded-full bg-white hover:bg-stone-100 text-[#120A05] border border-[#C9B38D] font-urdu font-bold text-sm shadow-md transition"
               >
-                بند کریں
+                ٹھیک ہے، شکریہ
               </button>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </div>
   );

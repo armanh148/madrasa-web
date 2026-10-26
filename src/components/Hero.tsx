@@ -1,114 +1,248 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-import { ArrowLeft, BookOpen, Sparkles, GraduationCap, Users, ShieldCheck } from "lucide-react";
+import {
+  MapPin,
+  ArrowLeft,
+  Sparkles,
+  ZoomIn,
+  CheckCircle2,
+  X,
+  ExternalLink,
+  GraduationCap,
+  Building,
+} from "lucide-react";
 import { madarsaInfo } from "@/data/madarsaData";
 
 interface HeroProps {
   onOpenAdmission: () => void;
-  onExploreCourses: () => void;
+  onOpenContact?: () => void;
+  onExploreCourses?: () => void;
 }
 
-export default function Hero({ onOpenAdmission, onExploreCourses }: HeroProps) {
+export default function Hero({ onOpenAdmission, onOpenContact, onExploreCourses }: HeroProps) {
+  const [isPosterZoomed, setIsPosterZoomed] = useState(false);
+
+  const googleMapsUrl =
+    "https://maps.google.com/?q=" +
+    encodeURIComponent("Madarsa Sahib uz Zaman Ahsanabad 3 Gulzar-e-Hijri Scheme 33 Karachi");
+
   return (
-    <section id="home" className="relative min-h-[92vh] flex items-center justify-center overflow-hidden">
-      {/* Background Hero Image with Overlays */}
+    <section
+      id="hero"
+      dir="rtl"
+      className="relative min-h-screen w-full flex flex-col justify-center items-center overflow-hidden bg-[#070E18] text-right"
+    >
+      {/* ============================================================== */}
+      {/* 1. BACKGROUND LAYER: Scenic madrasa building with trees &      */}
+      {/*    cinematic gradient (bg-cover bg-center)                     */}
+      {/* ============================================================== */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/hero-madarsa.jpg"
-          alt="مدرسہ صاحب الزمان عمارت"
+          src="/images/hero-banner.png"
+          alt="مدرسہ کی خوبصورت عمارت اور سرسبز درخت"
           fill
           priority
-          className="object-cover object-center scale-105 animate-pulse-slow"
+          className="object-cover object-center scale-100 transform transition-transform duration-1000 ease-out"
         />
-        {/* Dark Brown, Mahogany and Gold Gradients */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#120907] via-[#1F120E]/85 to-[#150B08]/75" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-[#1F120E]/70 to-[#120907]" />
-        <div className="absolute inset-0 islamic-stars opacity-40" />
+
+        {/* Dark Cinematic Warm Brown Gradient Overlay for high text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#120A05]/95 via-[#1A0E08]/75 to-[#120A05]/85" />
+
+        {/* Ambient Top & Bottom Depth Vignettes */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#120A05] via-transparent to-black/70" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#C9B38D]/10 via-transparent to-transparent opacity-60 pointer-events-none" />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-        {/* Bismillah / Calligraphy Header */}
-        <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#2E1B15]/80 border border-[#D4AF37]/40 shadow-gold-glow mb-6 backdrop-blur-md">
-          <Sparkles className="w-4 h-4 text-[#D4AF37]" />
-          <span className="text-sm sm:text-base text-[#F3E5AB] font-arabic tracking-wide">
-            بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ — يَا صَاحِبَ الزَّمَانِ أَدْرِكْنَا
-          </span>
-          <Sparkles className="w-4 h-4 text-[#D4AF37]" />
-        </div>
+      {/* ============================================================== */}
+      {/* 2. HERO MAIN CONTENT AREA (Split Grid / Flex Container)        */}
+      {/* ============================================================== */}
+      <div className="relative z-10 w-full max-w-[1500px] mx-auto px-4 sm:px-8 pt-24 sm:pt-28 pb-12 sm:pb-16 flex-1 flex flex-col justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-14 xl:gap-20 items-center">
 
-        {/* Main Madarsa Title */}
-        <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-[#FAF6F0] mb-6 leading-tight">
-          <span className="block text-2xl sm:text-3xl text-[#D4AF37] font-medium mb-2">
-            حوزہ علمیہ و دار القرآن
-          </span>
-          <span className="gold-text-gradient drop-shadow-md">
-            مدرسہ صاحب الزمان
-          </span>
-          <span className="block text-2xl sm:text-4xl text-[#F3E5AB] font-normal mt-2">
-            (عجل اللہ تعالیٰ فرجہ الشریف)
-          </span>
-        </h1>
+          {/* ---------------------------------------------------------- */}
+          {/* RIGHT / MAIN COLUMN (md:col-span-7)                        */}
+          {/* Madrasa Branding & Heading in Urdu                         */}
+          {/* ---------------------------------------------------------- */}
+          <div className="md:col-span-7 flex flex-col items-start text-right space-y-6 sm:space-y-7 order-1 md:order-1">
 
-        {/* Tagline / Subtitle */}
-        <p className="max-w-3xl mx-auto text-lg sm:text-2xl text-[#FAF6F0]/90 mb-10 leading-relaxed font-light">
-          دینی و عصری علوم کا بین الاقوامی گہوارہ — جہاں علومِ آلِ محمدؑ کی گہری تعلیم، حفظ و تجوید،
-          اور جدید دور کے تقاضوں سے ہم آہنگ تربیت دی جاتی ہے۔
-        </p>
+            {/* A. Bismillah Subheading in Elegant Arabic Script with Dull Gold Accent */}
+            <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-[#1A0E08]/80 border border-[#C9B38D]/40 backdrop-blur-md shadow-lg shadow-black/40 group hover:border-[#C9B38D] transition-colors">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#C9B38D] shadow-[0_0_12px_#C9B38D] animate-pulse shrink-0" />
+              <p className="font-arabic text-lg sm:text-2xl font-bold tracking-wider text-[#D9C7A7] drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+                {madarsaInfo.bismillah}
+              </p>
+            </div>
 
-        {/* Action Buttons */}
-        <div className="flex flex-wrap items-center justify-center gap-4 mb-14">
-          <button
-            onClick={onOpenAdmission}
-            className="group flex items-center gap-3 bg-gradient-to-r from-[#D4AF37] via-[#F3E5AB] to-[#C5A059] text-[#1A0F0D] font-bold text-base sm:text-lg px-8 py-4 rounded-2xl shadow-gold-glow hover:shadow-gold-glow-lg hover:scale-105 transition-all duration-300"
-          >
-            <span>آن لائن داخلہ فارم پر کریں</span>
-            <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-          </button>
+            {/* B. Main Title: Large, Prominent White & Dull Gold Typography */}
+            <div className="space-y-6 sm:space-y-8 w-full">
+              {/* Accessible Semantic Heading with Dull Gold Accent */}
+              <h1 className="urdu-title text-4xl sm:text-6xl lg:text-7xl leading-[1.8] select-none pb-2 sm:pb-3 text-white">
+                <span>مدرسہ صاحب الزمان</span>
+                <span className="inline-block mr-3 sm:mr-5 text-2xl sm:text-4xl lg:text-5xl text-[#C9B38D] font-bold">
+                  (عج)
+                </span>
+              </h1>
 
-          <a
-            href="#courses"
-            className="flex items-center gap-2.5 bg-[#2E1B15]/90 hover:bg-[#3E2723] text-[#FAF6F0] border border-[#D4AF37]/50 text-base sm:text-lg px-7 py-4 rounded-2xl transition-all duration-300 hover:border-[#D4AF37]"
-          >
-            <BookOpen className="w-5 h-5 text-[#D4AF37]" />
-            <span>تعلیمی شعبہ جات دیکھیں</span>
-          </a>
+              {/* Urdu Tagline & Mission */}
+              <p className="font-urdu text-base sm:text-lg md:text-xl text-[#FAF7F2] leading-[2.4] sm:leading-[2.6] max-w-3xl font-medium drop-shadow-md pt-3 sm:pt-4">
+                دینی و عصری علوم کا بین الاقوامی اسلامی ادارہ | حوزوی تعلیم، تجوید، خطابت، انگلش اور کمپیوٹر کا مثالی سنگم برائے کردار سازی
+              </p>
+            </div>
 
-          <a
-            href="#dastarkhwan"
-            className="flex items-center gap-2 bg-[#1A0F0D]/80 hover:bg-[#2E1B15] text-[#F3E5AB] border border-[#D4AF37]/30 text-base px-6 py-4 rounded-2xl transition-all"
-          >
-            <span>دسترخوانِ امام زمانہؑ</span>
-          </a>
-        </div>
+            {/* C. Quick Institutional Feature Badges in White & Dull Gold */}
+            <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 font-urdu text-xs sm:text-sm">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#1A0E08]/80 border border-[#C9B38D]/35 text-[#D9C7A7] backdrop-blur-sm">
+                <GraduationCap className="w-3.5 h-3.5 text-[#C9B38D]" />
+                ۵ سالہ حوزوی نصاب
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#1A0E08]/80 border border-[#C9B38D]/35 text-white backdrop-blur-sm">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#C9B38D]" />
+                مفت ہاسٹل و معیاری طعام
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#1A0E08]/80 border border-[#C9B38D]/35 text-white backdrop-blur-sm">
+                <Building className="w-3.5 h-3.5 text-[#C9B38D]" />
+                کمپیوٹر لیب و لائبریری
+              </span>
+            </div>
 
-        {/* Highlights Row */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-6 border-t border-[#D4AF37]/20">
-          <div className="flex items-center justify-center gap-2.5 p-3 rounded-xl bg-[#1F120E]/60 border border-[#4E3227]/50 backdrop-blur-sm">
-            <GraduationCap className="w-5 h-5 text-[#D4AF37]" />
-            <span className="text-sm font-medium text-[#FAF6F0]">حوزوی و مستند اسناد</span>
+            {/* D. Location Tag (Urdu Address with Red Location Pin) */}
+            <a
+              href={googleMapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl bg-[#1A0E08]/85 hover:bg-[#25150C] border border-[#C9B38D]/40 hover:border-[#C9B38D] transition-all duration-300 group shadow-lg backdrop-blur-md"
+              title="گوگل میپس پر لوکیشن دیکھیں"
+            >
+              <span className="relative flex h-4 w-4 shrink-0 items-center justify-center">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75" />
+                <MapPin className="relative w-4 h-4 text-red-500 fill-red-500 drop-shadow-[0_0_8px_rgba(239,68,68,0.9)]" />
+              </span>
+              <span className="font-urdu text-xs sm:text-sm text-white group-hover:text-[#D9C7A7] transition-colors">
+                پلاٹ بی 25، احسن آباد، گلزارِ ہجری، اسکیم 33، کراچی، پاکستان
+              </span>
+              <ExternalLink className="w-3.5 h-3.5 text-[#C9B38D] group-hover:translate-x-0.5 transition-transform" />
+            </a>
+
+            {/* E. Call-To-Action Buttons: White & Dull Golden Buttons */}
+            <div className="pt-2 flex flex-wrap items-center gap-3 sm:gap-4">
+              {/* Button 1: White Pill Button with Dull Gold Border */}
+              <button
+                onClick={onOpenAdmission}
+                className="group inline-flex items-center justify-center gap-2.5 sm:gap-3 h-11 sm:h-12 px-7 sm:px-9 rounded-full bg-white hover:bg-stone-100 border-2 border-[#C9B38D] text-[#120A05] font-urdu font-bold text-lg sm:text-xl shadow-[0_10px_25px_rgba(0,0,0,0.6)] hover:shadow-[0_0_25px_rgba(201,179,141,0.5)] transition-all duration-300 hover:scale-[1.02] active:scale-95 cursor-pointer"
+                aria-label="آن لائن داخلہ لیں"
+              >
+                <span>داخلہ لیں</span>
+                <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5 text-[#8C6D3F] transition-transform duration-300 group-hover:-translate-x-1" />
+              </button>
+
+              {/* Button 2: Dull Golden Border & Translucent Dark Brown Pill with White Text */}
+              {onOpenContact && (
+                <button
+                  onClick={onOpenContact}
+                  className="inline-flex items-center justify-center h-11 sm:h-12 px-6 sm:px-8 rounded-full bg-[#1A0E08]/75 hover:bg-[#C9B38D]/20 text-white font-urdu font-bold text-base sm:text-lg border border-[#C9B38D] transition-all duration-300 backdrop-blur-md hover:scale-[1.02] active:scale-95 cursor-pointer shadow-md"
+                >
+                  <span>ہم سے رابطہ کریں</span>
+                </button>
+              )}
+            </div>
+
           </div>
 
-          <div className="flex items-center justify-center gap-2.5 p-3 rounded-xl bg-[#1F120E]/60 border border-[#4E3227]/50 backdrop-blur-sm">
-            <Users className="w-5 h-5 text-[#D4AF37]" />
-            <span className="text-sm font-medium text-[#FAF6F0]">مستقل شعبہ برائے خواتین</span>
+          {/* ---------------------------------------------------------- */}
+          {/* LEFT / SIDE COLUMN: Admission Poster Image Div             */}
+          {/* ---------------------------------------------------------- */}
+          <div className="md:col-span-5 order-2 md:order-2 flex justify-center items-center w-full">
+            <div
+              onClick={() => setIsPosterZoomed(true)}
+              className="relative w-full max-w-[260px] sm:max-w-[300px] md:max-w-[330px] lg:max-w-[370px] xl:max-w-[400px] p-[2px] rounded-[22px] bg-gradient-to-b from-[#EFE5D2] via-[#C9B38D] to-[#876F4B] shadow-[0_20px_45px_rgba(0,0,0,0.85)] hover:shadow-[0_0_30px_rgba(201,179,141,0.5)] cursor-pointer group transition-all duration-300"
+              title="داخلہ پوسٹر بڑا کر کے دیکھیں"
+            >
+              <div className="relative w-full rounded-[20px] overflow-hidden bg-[#1A0E07]">
+                <Image
+                  src="/images/admission-poster.jpeg"
+                  alt="داخلے جاری ہیں - مدرسہ صاحب الزمان"
+                  width={720}
+                  height={994}
+                  priority
+                  className="w-full h-auto block select-none group-hover:scale-[1.015] transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[1px]">
+                  <span className="bg-black/90 text-amber-300 font-urdu text-xs sm:text-sm font-bold px-3.5 py-1.5 rounded-full border border-amber-400 shadow-xl flex items-center gap-1.5">
+                    <ZoomIn className="w-3.5 h-3.5 text-amber-400" />
+                    <span>پوسٹر بڑا کریں 🔍</span>
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div className="flex items-center justify-center gap-2.5 p-3 rounded-xl bg-[#1F120E]/60 border border-[#4E3227]/50 backdrop-blur-sm">
-            <ShieldCheck className="w-5 h-5 text-[#D4AF37]" />
-            <span className="text-sm font-medium text-[#FAF6F0]">مفت رہائش و معیاری طعام</span>
-          </div>
-
-          <div className="flex items-center justify-center gap-2.5 p-3 rounded-xl bg-[#1F120E]/60 border border-[#4E3227]/50 backdrop-blur-sm">
-            <BookOpen className="w-5 h-5 text-[#D4AF37]" />
-            <span className="text-sm font-medium text-[#FAF6F0]">عصری و آئی ٹی تعلیم</span>
-          </div>
         </div>
       </div>
 
-      {/* Bottom Wave Divider */}
-      <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-[#150B08] to-transparent pointer-events-none" />
+      {/* ============================================================== */}
+      {/* 3. LIGHTBOX MODAL: Full View of Original Admission Flyer       */}
+      {/* ============================================================== */}
+      {isPosterZoomed && (
+        <div
+          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-3 sm:p-6"
+          onClick={() => setIsPosterZoomed(false)}
+        >
+          <div
+            className="relative max-w-2xl w-full max-h-[95vh] flex flex-col items-center bg-[#1A0D08] rounded-3xl p-4 sm:p-6 border-2 border-amber-500/40 shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+            dir="rtl"
+          >
+            {/* Modal Header */}
+            <div className="w-full flex items-center justify-between pb-3 border-b border-amber-500/30 mb-3">
+              <span className="font-urdu text-sm sm:text-base font-bold text-amber-300">
+                داخلہ پراسپیکٹس و شرائط — مدرسہ صاحب الزمان (عج)
+              </span>
+              <button
+                onClick={() => setIsPosterZoomed(false)}
+                className="text-white hover:text-amber-400 text-sm font-bold bg-white/10 hover:bg-white/20 px-3.5 py-1 rounded-full border border-white/20 transition flex items-center gap-1 cursor-pointer"
+              >
+                <X className="w-4 h-4" />
+                <span>بند کریں</span>
+              </button>
+            </div>
+
+            {/* Poster Graphic Container */}
+            <div className="relative w-full h-[62vh] sm:h-[70vh] rounded-2xl overflow-hidden bg-black/60 border border-amber-500/30">
+              <Image
+                src="/images/admission-poster.jpeg"
+                alt="داخلے جاری ہیں مدرسہ صاحب الزمان مکمل پوسٹر"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+
+            {/* Modal Bottom Actions */}
+            <div className="mt-4 flex flex-wrap items-center justify-center gap-3 w-full font-urdu">
+              <button
+                onClick={() => {
+                  setIsPosterZoomed(false);
+                  onOpenAdmission();
+                }}
+                className="flex-1 max-w-sm bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-black font-black py-2.5 px-6 rounded-full shadow-lg text-sm sm:text-base flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <Sparkles className="w-4 h-4 text-black" />
+                <span>آن لائن داخلہ فارم پر جائیں</span>
+              </button>
+
+              <button
+                onClick={() => setIsPosterZoomed(false)}
+                className="bg-white/10 hover:bg-white/20 text-white font-medium py-2.5 px-5 rounded-full text-sm border border-white/20 transition cursor-pointer"
+              >
+                بند کریں
+              </button>
+            </div>
+
+          </div>
+        </div>
+      )}
     </section>
   );
 }

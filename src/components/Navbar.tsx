@@ -2,180 +2,172 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { Menu, X, Phone, HeartHandshake, Sparkles, UserPlus } from "lucide-react";
-import { madarsaInfo } from "@/data/madarsaData";
+import { Menu, X, HeartHandshake, PhoneCall } from "lucide-react";
 
 interface NavbarProps {
   onOpenAdmission: () => void;
   onOpenDonation: () => void;
+  onOpenContact: () => void;
 }
 
-export default function Navbar({ onOpenAdmission, onOpenDonation }: NavbarProps) {
+export default function Navbar({ onOpenAdmission, onOpenDonation, onOpenContact }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 30);
+      setScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navLinks = [
-    { name: "صفحۂ اول", href: "#home" },
-    { name: "تعارف و مقاصد", href: "#about" },
-    { name: "تعلیمی شعبہ جات", href: "#courses" },
-    { name: "شعبہ خواتین", href: "#women" },
-    { name: "دسترخوان امام زمانہؑ", href: "#dastarkhwan" },
-    { name: "مکتبہ و لائبریری", href: "#library" },
-    { name: "معاونت و تبرکات", href: "#donation" },
+    { name: "صفحہ اول", href: "#hero" },
+    { name: "تعارف", href: "#about" },
+    { name: "کتب خانہ", href: "#books" },
+    { name: "تصاویر و ویڈیوز", href: "#campus-media" },
+    { name: "عطیات و صدقات", href: "#donation" },
+    { name: "تاثرات", href: "#testimonials" },
     { name: "رابطہ", href: "#contact" },
   ];
 
   return (
-    <>
-      {/* Top Banner Notice */}
-      <div className="bg-gradient-to-r from-[#23120C] via-[#3E2723] to-[#23120C] border-b border-[#D4AF37]/20 py-1.5 px-4 text-xs text-[#FAF6F0]/90">
-        <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
-          <div className="flex items-center gap-2">
-            <span className="inline-flex items-center justify-center px-2 py-0.5 rounded text-[11px] font-semibold bg-[#D4AF37] text-[#1A0F0D]">
-              اعلانِ داخلہ
-            </span>
-            <span className="text-[#F3E5AB]">
-              نئے تعلیمی سال کے داخلے شروع ہیں — محدود نشستیں دستیاب ہیں!
-            </span>
-          </div>
-          <div className="hidden md:flex items-center gap-4 text-[12px] text-[#FAF6F0]/80">
-            <a href={`tel:${madarsaInfo.phone}`} className="flex items-center gap-1.5 hover:text-[#D4AF37] transition">
-              <Phone className="w-3.5 h-3.5 text-[#D4AF37]" />
-              <span dir="ltr">{madarsaInfo.phone}</span>
-            </a>
-            <span className="text-[#D4AF37]/40">|</span>
-            <span className="text-[#D4AF37]">اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَآلِ مُحَمَّدٍ وَعَجِّلْ فَرَجَهُمْ</span>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Navigation Bar */}
-      <nav
-        className={`sticky top-0 z-40 transition-all duration-300 ${
-          scrolled
-            ? "bg-[#1A0F0D]/95 backdrop-blur-md shadow-2xl border-b border-[#D4AF37]/30 py-2.5"
-            : "bg-[#1A0F0D]/80 backdrop-blur-sm border-b border-[#D4AF37]/15 py-3.5"
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between">
-            {/* Logo and Brand */}
-            <a href="#home" className="flex items-center gap-3 group">
-              <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-[#D4AF37] shadow-gold-glow group-hover:scale-105 transition-transform">
+    <header
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 backdrop-blur-2xl backdrop-saturate-150 border-b ${
+        scrolled
+          ? "py-2.5 bg-[#120A05]/90 shadow-[0_15px_35px_rgba(0,0,0,0.8)] border-[#C9B38D]/20"
+          : "py-3.5 sm:py-4 bg-[#120A05]/50 hover:bg-[#120A05]/70 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] border-[#C9B38D]/15"
+      }`}
+      dir="rtl"
+    >
+      <div className="max-w-[1500px] mx-auto px-4 sm:px-8">
+        <div className="flex items-center justify-between h-14 sm:h-16">
+          
+          {/* ======================================================== */}
+          {/* 1. RIGHT SIDE: Madrasa Logo (Gold/Emerald Branding Icon) */}
+          {/* ======================================================== */}
+          <div className="flex items-center gap-3">
+            <a href="#hero" className="flex items-center gap-3 group" title="مدرسہ صاحب الزمان (عج)">
+              <div className="relative w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-105 drop-shadow-[0_0_15px_rgba(201,179,141,0.4)]">
                 <Image
                   src="/images/logo.png"
-                  alt="مدرسہ صاحب الزمان لوگو"
-                  fill
-                  className="object-cover"
+                  alt="مدرسہ صاحب الزمان گولڈ و ایمرلڈ لوگو"
+                  width={56}
+                  height={56}
+                  className="w-12 h-12 sm:w-14 sm:h-14 object-contain filter drop-shadow"
+                  priority
                 />
               </div>
-              <div className="flex flex-col">
-                <span className="text-xl sm:text-2xl font-bold tracking-tight text-[#FAF6F0] group-hover:text-[#D4AF37] transition font-heading">
-                  مدرسہ صاحب الزمان <span className="text-sm font-normal text-[#D4AF37]">(عج)</span>
+              <div className="hidden sm:flex flex-col justify-center text-right gap-0.5">
+                <span className="font-urdu text-sm lg:text-base font-bold text-white group-hover:text-[#D9C7A7] transition-colors leading-normal">
+                  مدرسہ صاحب الزمان
                 </span>
-                <span className="text-[11px] text-[#D4AF37]/90 tracking-wide">
-                  دینی و عصری علوم کا بین الاقوامی ادارہ
+                <span className="text-[10px] text-[#C9B38D] font-cairo leading-normal">
+                  (عجل اللہ تعالیٰ فرجہ الشریف)
                 </span>
               </div>
             </a>
+          </div>
 
-            {/* Desktop Navigation Links */}
-            <div className="hidden lg:flex items-center gap-1.5 xl:gap-3">
+          {/* ======================================================== */}
+          {/* 2. CENTER: Urdu Navigation Links with Smooth Transitions */}
+          {/* ======================================================== */}
+          <nav className="hidden md:flex items-center gap-6 lg:gap-9 font-urdu text-base lg:text-lg">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="text-white hover:text-[#D9C7A7] transition-colors relative group py-1 font-medium"
+              >
+                {link.name}
+                <span className="absolute bottom-0 right-0 w-0 h-0.5 bg-[#C9B38D] transition-all duration-300 group-hover:w-full" />
+              </a>
+            ))}
+          </nav>
+
+          {/* ======================================================== */}
+          {/* 3. LEFT SIDE: Action Buttons (Urdu Text)                 */}
+          {/* ======================================================== */}
+          <div className="hidden sm:flex items-center gap-3">
+            {/* "رابطہ کریں" Button with Dull Gold Border & White Text */}
+            <button
+              onClick={onOpenContact}
+              className="font-urdu text-xs sm:text-sm font-bold px-5 py-2 rounded-full border border-[#C9B38D] text-white hover:text-[#120A05] bg-[#1A0E08]/70 hover:bg-[#C9B38D] transition-all duration-300 shadow-md active:scale-95 flex items-center gap-1.5"
+            >
+              <PhoneCall className="w-3.5 h-3.5 text-[#C9B38D]" />
+              <span>رابطہ کریں</span>
+            </button>
+
+            {/* "تعاون" Button (White Pill with Dull Golden Accent) */}
+            <button
+              onClick={onOpenDonation}
+              className="font-urdu text-xs sm:text-sm font-bold px-6 py-2 rounded-full bg-white hover:bg-stone-100 text-[#120A05] transition-all duration-300 shadow-lg border border-[#C9B38D]/60 hover:scale-105 active:scale-95 flex items-center gap-1.5"
+            >
+              <HeartHandshake className="w-4 h-4 text-[#8C6D3F]" />
+              <span>تعاون</span>
+            </button>
+          </div>
+
+          {/* Mobile Toggle Button */}
+          <div className="flex md:hidden items-center gap-2">
+            <button
+              onClick={onOpenAdmission}
+              className="bg-white text-[#120A05] border border-[#C9B38D] font-urdu text-xs font-bold px-3.5 py-1.5 rounded-full shadow active:scale-95"
+            >
+              داخلہ لیں
+            </button>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="p-2 rounded-lg bg-white/10 text-white hover:bg-white/20 transition"
+              aria-label="مینو کھولیں"
+            >
+              {isOpen ? <X className="w-5 h-5 text-[#C9B38D]" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
+
+        </div>
+
+        {/* Mobile Dropdown Menu with Glassmorphism */}
+        {isOpen && (
+          <div className="md:hidden mt-2 bg-black/60 border border-white/15 rounded-2xl p-4 shadow-2xl backdrop-blur-2xl space-y-3">
+            <div className="flex flex-col gap-2 font-urdu">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className="px-2.5 py-1.5 text-sm font-medium text-[#FAF6F0]/85 hover:text-[#D4AF37] hover:bg-[#3E2723]/40 rounded-lg transition-all"
+                  onClick={() => setIsOpen(false)}
+                  className="px-4 py-2 rounded-xl text-slate-100 hover:bg-white/10 hover:text-amber-400 text-base font-medium transition-colors text-right"
                 >
                   {link.name}
                 </a>
               ))}
             </div>
 
-            {/* Action Buttons */}
-            <div className="hidden sm:flex items-center gap-2.5">
-              <button
-                onClick={onOpenAdmission}
-                className="flex items-center gap-2 bg-gradient-to-r from-[#D4AF37] via-[#F3E5AB] to-[#C5A059] text-[#1A0F0D] font-bold px-4 py-2 rounded-xl text-sm shadow-gold-glow hover:shadow-gold-glow-lg hover:scale-105 transition-all"
-              >
-                <UserPlus className="w-4 h-4" />
-                <span>آن لائن داخلہ</span>
-              </button>
-
-              <button
-                onClick={onOpenDonation}
-                className="flex items-center gap-1.5 bg-[#3E2723] hover:bg-[#4E3227] text-[#D4AF37] border border-[#D4AF37]/40 px-3.5 py-2 rounded-xl text-sm font-medium transition-all"
-              >
-                <HeartHandshake className="w-4 h-4" />
-                <span>معاونت</span>
-              </button>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <div className="lg:hidden flex items-center gap-2">
-              <button
-                onClick={onOpenAdmission}
-                className="flex sm:hidden items-center gap-1 bg-[#D4AF37] text-[#1A0F0D] text-xs font-bold px-2.5 py-1.5 rounded-lg"
-              >
-                داخلہ
-              </button>
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="p-2 rounded-lg text-[#FAF6F0] hover:text-[#D4AF37] hover:bg-[#2E1B15] focus:outline-none"
-                aria-label="Toggle Menu"
-              >
-                {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Mobile Dropdown Menu */}
-        {isOpen && (
-          <div className="lg:hidden bg-[#1A0F0D]/98 border-t border-[#D4AF37]/20 px-4 pt-3 pb-6 space-y-2 mt-2 shadow-2xl">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className="block px-3 py-2 text-base font-medium text-[#FAF6F0] hover:text-[#D4AF37] hover:bg-[#3E2723]/50 rounded-lg transition"
-              >
-                {link.name}
-              </a>
-            ))}
-            <div className="pt-3 border-t border-[#4E3227] flex flex-col gap-2">
+            <div className="pt-3 border-t border-slate-700/60 flex items-center justify-between gap-3">
               <button
                 onClick={() => {
                   setIsOpen(false);
-                  onOpenAdmission();
+                  onOpenContact();
                 }}
-                className="w-full flex items-center justify-center gap-2 bg-[#D4AF37] text-[#1A0F0D] font-bold py-2.5 rounded-xl text-sm shadow-gold-glow"
+                className="flex-1 font-urdu bg-amber-500/20 border border-amber-400/90 text-amber-300 font-bold py-2 rounded-full text-center text-xs"
               >
-                <UserPlus className="w-4 h-4" />
-                آن لائن داخلہ فارم
+                رابطہ کریں
               </button>
               <button
                 onClick={() => {
                   setIsOpen(false);
                   onOpenDonation();
                 }}
-                className="w-full flex items-center justify-center gap-2 bg-[#2E1B15] text-[#D4AF37] border border-[#D4AF37]/40 py-2.5 rounded-xl text-sm"
+                className="flex-1 font-urdu bg-white text-black font-black py-2 rounded-full text-center text-xs shadow"
               >
-                <HeartHandshake className="w-4 h-4" />
-                معاونت و دسترخوان تبرکات
+                تعاون
               </button>
             </div>
           </div>
         )}
-      </nav>
-    </>
+
+      </div>
+    </header>
   );
 }

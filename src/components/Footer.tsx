@@ -1,137 +1,204 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-import { Phone, Mail, MapPin, Heart, Sparkles, Send } from "lucide-react";
+import { Mail, Send, Check, Facebook, Twitter, Instagram, Youtube, Phone, MapPin, ExternalLink, Sparkles } from "lucide-react";
 import { madarsaInfo } from "@/data/madarsaData";
 
 export default function Footer() {
-  return (
-    <footer id="contact" className="bg-[#0D0604] border-t-2 border-[#D4AF37]/30 text-[#FAF6F0] relative overflow-hidden">
-      {/* Dua e Faraj Banner */}
-      <div className="bg-[#1A0F0D] py-6 px-4 border-b border-[#3E2723] text-center">
-        <div className="max-w-4xl mx-auto space-y-2">
-          <p className="text-base sm:text-xl font-arabic text-[#F3E5AB] leading-relaxed">
-            "اَللَّـهُمَّ كُنْ لِوَلِيِّكَ الحُجَّةِ بْنِ الحَسَنِ، صَلَوَاتُكَ عَلَيْهِ وَعَلَى آبَائِهِ، فِي هَـٰذِهِ السَّاعَةِ وَفِي كُلِّ سَاعَةٍ، وَلِيّاً وَحَافِظاً وَقَائِداً وَنَاصِراً وَدَلِيلاً وَعَيْناً، حَتَّىٰ تُسْكِنَهُ أَرْضَكَ طَوْعاً وَتُمَتِّعَهُ فِيهَا طَوِيلاً"
-          </p>
-          <p className="text-xs text-[#D4AF37]">
-            اللَّهُمَّ عَجِّلْ لِوَلِيِّكَ الْفَرَجَ وَالْعَافِيَةَ وَالنَّصْر
-          </p>
-        </div>
-      </div>
+  const [email, setEmail] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
-          {/* Col 1: About & Logo */}
-          <div className="lg:col-span-4 space-y-4">
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email) {
+      setSubscribed(true);
+      setTimeout(() => {
+        setSubscribed(false);
+        setEmail("");
+      }, 3500);
+    }
+  };
+
+  const googleMapsUrl = "https://maps.google.com/?q=" + encodeURIComponent("Madarsa Sahib uz Zaman Ahsanabad 3 Gulzar-e-Hijri Scheme 33 Karachi");
+
+  return (
+    <footer id="contact" className="bg-[#0D0704] text-white pt-16 pb-8 border-t border-[#C9B38D]/25 relative overflow-hidden">
+      <div className="w-full max-w-[1500px] mx-auto px-4 sm:px-8 relative z-10">
+        
+        {/* Top Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-14 border-b border-[#C9B38D]/15">
+          
+          {/* Column 1: Brand & Social Media */}
+          <div className="lg:col-span-5 space-y-5 text-right">
             <div className="flex items-center gap-3">
-              <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-[#D4AF37] shadow-gold-glow">
+              <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-[#C9B38D] shadow-[0_0_20px_rgba(201,179,141,0.35)]">
                 <Image
                   src="/images/logo.png"
                   alt="مدرسہ صاحب الزمان لوگو"
                   fill
-                  className="object-cover"
+                  className="object-contain"
                 />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-[#FAF6F0] font-heading">
-                  مدرسہ صاحب الزمان <span className="text-[#D4AF37]">(عج)</span>
+                <h3 className="text-xl sm:text-2xl font-urdu font-bold tracking-tight text-white">
+                  مدرسہ صاحب الزمان <span className="text-sm font-semibold text-[#C9B38D]">(عج)</span>
                 </h3>
-                <p className="text-xs text-[#D4AF37]">حوزہ علمیہ و دارالقرآن الکریم</p>
+                <p className="text-xs text-[#C9B38D] font-urdu tracking-wide">
+                  دینی و عصری علوم کا بین الاقوامی اسلامی ادارہ
+                </p>
               </div>
             </div>
 
-            <p className="text-sm text-[#FAF6F0]/75 leading-relaxed">
-              ایک عظیم تعلیمی و تربیتی ادارہ جو مکتبِ اہل بیت علیہم السلام کی حقیقی تعلیمات کو جدید تقاضوں کے ساتھ نئی نسل تک منتقل کر رہا ہے۔
+            <p className="text-sm text-stone-300 font-urdu leading-[2.2] sm:leading-[2.4] max-w-md">
+              ایک عظیم حوزوی و فلاحی ادارہ جو قرآنی فہم، علومِ آلِ محمدؑ اور جدید عصری تقاضوں کے ساتھ نئی نسل کی فکری، اخلاقی اور روحانی کردار سازی کے لیے ہمہ وقت کوشاں ہے۔
             </p>
 
-            <div className="pt-2 text-xs text-[#F3E5AB]">
-              <span>رجسٹریشن و الحاق: </span>
-              <span className="text-[#FAF6F0]/80">وفاق المدارس الشیعہ پاکستان / حوزات علمیہ</span>
-            </div>
-          </div>
-
-          {/* Col 2: Quick Links */}
-          <div className="lg:col-span-2 space-y-3">
-            <h4 className="text-base font-bold text-[#D4AF37] border-b border-[#3E2723] pb-2">
-              اہم روابط
-            </h4>
-            <ul className="space-y-2 text-sm text-[#FAF6F0]/80">
-              <li>
-                <a href="#home" className="hover:text-[#D4AF37] transition">صفحۂ اول</a>
-              </li>
-              <li>
-                <a href="#about" className="hover:text-[#D4AF37] transition">تعارف و منشور</a>
-              </li>
-              <li>
-                <a href="#courses" className="hover:text-[#D4AF37] transition">تعلیمی شعبہ جات</a>
-              </li>
-              <li>
-                <a href="#women" className="hover:text-[#D4AF37] transition">شعبہ خواتین</a>
-              </li>
-              <li>
-                <a href="#dastarkhwan" className="hover:text-[#D4AF37] transition">دسترخوان امام زمانہؑ</a>
-              </li>
-              <li>
-                <a href="#library" className="hover:text-[#D4AF37] transition">مکتبہ و لائبریری</a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Col 3: Programs */}
-          <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-base font-bold text-[#D4AF37] border-b border-[#3E2723] pb-2">
-              شعبہ جات و کورسز
-            </h4>
-            <ul className="space-y-2 text-sm text-[#FAF6F0]/80">
-              <li>• درسِ نظامی (حوزوی درجات)</li>
-              <li>• حفظ و تجوید القرآن الکریم</li>
-              <li>• عقائد، فقہ و اخلاقیات</li>
-              <li>• شعبہ جدید آئی ٹی و انگلش</li>
-              <li>• جامعہ فاطمۃ الزہراء (خواتین)</li>
-              <li>• فاصلاتی و آن لائن کورسز</li>
-            </ul>
-          </div>
-
-          {/* Col 4: Contact info */}
-          <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-base font-bold text-[#D4AF37] border-b border-[#3E2723] pb-2">
-              رابطہ و معلومات
-            </h4>
-            <div className="space-y-3 text-sm text-[#FAF6F0]/80">
-              <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[#D4AF37] shrink-0 mt-1" />
-                <span>{madarsaInfo.address}، {madarsaInfo.city}</span>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-[#D4AF37] shrink-0" />
-                <span dir="ltr">{madarsaInfo.phone}</span>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-[#D4AF37] shrink-0" />
-                <span>{madarsaInfo.email}</span>
-              </div>
-            </div>
-
-            <div className="pt-2">
+            {/* Address & Map Pin */}
+            <div className="pt-1">
               <a
-                href="#donation"
-                className="inline-flex items-center gap-1.5 text-xs text-[#FAF6F0] bg-[#3E2723] hover:bg-[#4E3227] px-3.5 py-2 rounded-lg border border-[#D4AF37]/30 transition"
+                href={googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-2.5 text-xs sm:text-sm text-stone-300 hover:text-[#C9B38D] transition-colors p-3.5 rounded-2xl bg-[#1A0E08] border border-[#C9B38D]/20 hover:border-[#C9B38D]/40 max-w-md group"
               >
-                <Heart className="w-3.5 h-3.5 text-[#D4AF37]" />
-                <span>حقوقِ شرعیہ و صدقات کی تفصیلات</span>
+                <MapPin className="w-5 h-5 text-red-500 shrink-0 fill-red-500 mt-0.5" />
+                <span className="leading-[2.2] font-urdu">
+                  {madarsaInfo.address}
+                </span>
+                <ExternalLink className="w-4 h-4 text-[#C9B38D] shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
               </a>
             </div>
+
+            {/* Social Media Links */}
+            <div className="pt-2">
+              <span className="text-xs font-urdu font-semibold text-stone-400 block mb-3">
+                سوشل میڈیا پر ہمارے ساتھ جڑیں:
+              </span>
+              <div className="flex items-center gap-2.5">
+                {[
+                  { icon: Facebook, label: "Facebook", href: "#" },
+                  { icon: Twitter, label: "Twitter", href: "#" },
+                  { icon: Instagram, label: "Instagram", href: "#" },
+                  { icon: Youtube, label: "YouTube", href: "#" },
+                ].map((social, idx) => {
+                  const Icon = social.icon;
+                  return (
+                    <a
+                      key={idx}
+                      href={social.href}
+                      className="w-10 h-10 rounded-full bg-[#1A0E08] hover:bg-white hover:text-[#120A05] transition flex items-center justify-center text-stone-300 border border-[#C9B38D]/20 hover:border-[#C9B38D] shadow-sm"
+                      aria-label={social.label}
+                    >
+                      <Icon className="w-4 h-4" />
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          {/* Column 2: Newsletter & Link Columns */}
+          <div className="lg:col-span-7 space-y-8">
+            
+            {/* Newsletter Subscription Box */}
+            <div className="space-y-3">
+              <h4 className="text-sm sm:text-base font-urdu font-bold text-white text-right">
+                تازہ ترین اعلانات اور خبروں کے لیے سبسکرائب کریں:
+              </h4>
+              <form onSubmit={handleSubscribe} className="flex max-w-lg rounded-full bg-[#1A0E08] border border-[#C9B38D]/25 focus-within:border-[#C9B38D] p-1.5 transition shadow-inner">
+                <button
+                  type="submit"
+                  className="bg-white hover:bg-stone-100 text-[#120A05] border border-[#C9B38D] font-urdu font-bold text-xs sm:text-sm px-6 py-2.5 rounded-full transition shadow flex items-center gap-1.5 shrink-0 active:scale-95"
+                >
+                  <Send className="w-3.5 h-3.5 text-[#120A05]" />
+                  <span>سبسکرائب</span>
+                </button>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="اپنا ای میل درج کریں..."
+                  className="w-full bg-transparent px-4 text-sm text-white placeholder-stone-500 outline-none text-left"
+                  dir="ltr"
+                  required
+                />
+              </form>
+              {subscribed && (
+                <div className="text-xs text-green-400 font-urdu flex items-center gap-1 text-right">
+                  <Check className="w-3.5 h-3.5" />
+                  <span>آپ کی ای میل کامیابی سے درج کر لی گئی ہے۔ شکریہ!</span>
+                </div>
+              )}
+            </div>
+
+            {/* Quick Links in 2 Columns */}
+            <div className="grid grid-cols-2 gap-8 pt-4">
+              
+              {/* Column 1: Services */}
+              <div className="space-y-3 text-right">
+                <h5 className="text-sm font-urdu font-bold text-[#C9B38D] uppercase tracking-wider border-b border-[#C9B38D]/20 pb-2">
+                  تربیتی و فکری مقاصد
+                </h5>
+                <ul className="space-y-2.5 text-xs sm:text-sm font-urdu text-stone-300">
+                  <li>
+                    <a href="#about" className="hover:text-[#C9B38D] transition">قرآن و علومِ آلِ محمدؑ</a>
+                  </li>
+                  <li>
+                    <a href="#about" className="hover:text-[#C9B38D] transition">تربیتِ اخلاق و کردار سازی</a>
+                  </li>
+                  <li>
+                    <a href="#about" className="hover:text-[#C9B38D] transition">فقہی و عقائدی پختگی</a>
+                  </li>
+                  <li>
+                    <a href="#about" className="hover:text-[#C9B38D] transition">خدمتِ دین و انسانیت</a>
+                  </li>
+                  <li>
+                    <a href="#about" className="hover:text-[#C9B38D] transition">جدید فکری و عصری شعور</a>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Column 2: Useful Links */}
+              <div className="space-y-3 text-right">
+                <h5 className="text-sm font-urdu font-bold text-[#C9B38D] uppercase tracking-wider border-b border-[#C9B38D]/20 pb-2">
+                  فوری رسائی
+                </h5>
+                <ul className="space-y-2.5 text-xs sm:text-sm font-urdu text-stone-300">
+                  <li>
+                    <a href="#hero" className="hover:text-[#C9B38D] transition">صفحۂ اول</a>
+                  </li>
+                  <li>
+                    <a href="#about" className="hover:text-[#C9B38D] transition">ہمارے بارے میں</a>
+                  </li>
+                  <li>
+                    <a href="#donation" className="hover:text-[#C9B38D] transition">عطیات و صدقات</a>
+                  </li>
+                  <li>
+                    <a href="#testimonials" className="hover:text-[#C9B38D] transition">تاثرات و پیغامات</a>
+                  </li>
+                  <li>
+                    <a href="#contact" className="hover:text-[#C9B38D] transition">رابطہ و پتہ</a>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        {/* Bottom Copyright Bar */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs font-urdu text-stone-400 gap-4">
+          <p>© ۲۰۲۶ مدرسہ صاحب الزمان (عجل اللہ تعالیٰ فرجہ الشریف) — جملہ حقوق محفوظ ہیں۔</p>
+          <div className="flex items-center gap-4 text-stone-400">
+            <span>پلاٹ بی 25، احسن آباد 3، گلزار ہجری، کراچی</span>
+            <span>•</span>
+            <span className="text-[#C9B38D] font-mono" dir="ltr">+92 300 1234567</span>
           </div>
         </div>
 
-        {/* Bottom copyright */}
-        <div className="mt-12 pt-6 border-t border-[#3E2723] flex flex-col sm:flex-row items-center justify-between text-xs text-[#FAF6F0]/60 gap-4">
-          <p>© ۲۰۲۶ مدرسہ صاحب الزمان (عجل اللہ تعالیٰ فرجہ الشریف) — جملہ حقوق محفوظ ہیں۔</p>
-          <p className="text-[#D4AF37]">
-            طراحی و ترقی برائے خدمتِ مکتبِ اہلِ بیت علیہم السلام
-          </p>
-        </div>
       </div>
     </footer>
   );
