@@ -23,13 +23,14 @@ export default function Navbar({ onOpenAdmission, onOpenDonation, onOpenContact 
   }, []);
 
   const navLinks = [
-    { name: "صفحہ اول", href: "#hero" },
-    { name: "تعارف", href: "#about" },
-    { name: "کتب خانہ", href: "#books" },
-    { name: "تصاویر و ویڈیوز", href: "#campus-media" },
-    { name: "عطیات و صدقات", href: "#donation" },
-    { name: "تاثرات", href: "#testimonials" },
-    { name: "رابطہ", href: "#contact" },
+    { name: "صفحہ اول", href: "/#hero" },
+    { name: "تعارف", href: "/#about" },
+    { name: "سفر و اساتذہ", href: "/history-staff" },
+    { name: "کتب خانہ", href: "/#books" },
+    { name: "تصاویر و ویڈیوز", href: "/#campus-media" },
+    { name: "عطیات و صدقات", href: "/#donation" },
+    { name: "تاثرات", href: "/#testimonials" },
+    { name: "رابطہ", href: "/#contact" },
   ];
 
   return (
