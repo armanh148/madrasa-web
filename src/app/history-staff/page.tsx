@@ -21,6 +21,7 @@ import {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AdmissionModal from "@/components/AdmissionModal";
+import FounderSection from "@/components/FounderSection";
 
 interface Milestone {
   year: string;
