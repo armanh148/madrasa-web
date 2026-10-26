@@ -26,6 +26,7 @@ export default function Navbar({ onOpenAdmission, onOpenDonation, onOpenContact 
     { name: "صفحہ اول", href: "/#hero" },
     { name: "تعارف", href: "/#about" },
     { name: "سفر و اساتذہ", href: "/history-staff" },
+    { name: "شعبہ خواتین", href: "/womens-department" },
     { name: "کتب خانہ", href: "/#books" },
     { name: "تصاویر و ویڈیوز", href: "/#campus-media" },
     { name: "عطیات و صدقات", href: "/#donation" },
