@@ -27,7 +27,7 @@ export default function Navbar({ onOpenAdmission, onOpenDonation, onOpenContact 
     { name: "تعارف و مقاصد", href: "/policy" },
     { name: "سفر و اساتذہ", href: "/history-staff" },
     { name: "شعبہ خواتین", href: "/womens-department" },
-    { name: "کتب خانہ", href: "/#books" },
+    { name: "کتب خانہ", href: "/library" },
   ];
 
   return (

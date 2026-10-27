@@ -186,10 +186,10 @@ export default function BooksSection() {
           </div>
 
           <a
-            href="#contact"
+            href="/library"
             className="inline-flex items-center justify-center h-11 px-7 rounded-full bg-white hover:bg-stone-100 text-[#120A05] border-2 border-[#C9B38D] font-urdu font-bold text-sm shrink-0 shadow-lg transition active:scale-95"
           >
-            لائبریری کی معلومات لیں
+            مکمل کتب خانہ و آن لائن کیٹلاگ دیکھیں
           </a>
         </div>
       </div>
