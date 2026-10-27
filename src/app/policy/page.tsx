@@ -177,11 +177,11 @@ export default function PolicyPage() {
                 <span className="text-xs font-bold uppercase tracking-wider text-[#C9B38D] font-urdu block mb-2">
                   ادارہ کے اہداف و ترجیحات
                 </span>
-                <h2 className="text-3xl sm:text-4xl font-urdu font-bold text-white leading-[1.7]">
+                <h2 className="text-3xl sm:text-4xl font-urdu font-bold text-white leading-[2.1] sm:leading-[2.2]">
                   ہماری بنیادی تعلیمی اور تربیتی پالیسی
                 </h2>
-                <div className="w-20 h-1 bg-gradient-to-r from-transparent via-[#C9B38D] to-transparent rounded-full my-3 shadow-[0_0_12px_rgba(201,179,141,0.5)]" />
-                <p className="text-xs sm:text-sm text-stone-300 font-urdu leading-[2.2]">
+                <div className="w-20 h-1 bg-gradient-to-r from-transparent via-[#C9B38D] to-transparent rounded-full my-3.5 shadow-[0_0_12px_rgba(201,179,141,0.5)]" />
+                <p className="text-xs sm:text-sm text-stone-300 font-urdu leading-[2.4]">
                   ادارے کا مقصد صرف کتب پڑھانا نہیں بلکہ طالب علم کے فکر، عمل، کردار اور اخلاق کو اسوہ معصومینؑ کے مطابق نکھارنا ہے۔
                 </p>
               </div>
@@ -204,11 +204,11 @@ export default function PolicyPage() {
                           </div>
                         </div>
 
-                        <h3 className="text-base sm:text-lg font-urdu font-bold text-white mb-2 leading-[1.6] group-hover:text-[#D9C7A7] transition-colors">
+                        <h3 className="text-base sm:text-lg font-urdu font-bold text-white mb-2.5 leading-[2.1] group-hover:text-[#D9C7A7] transition-colors">
                           {goal.title}
                         </h3>
 
-                        <p className="text-xs sm:text-sm text-stone-300 font-urdu leading-[2.2]">
+                        <p className="text-xs sm:text-sm text-stone-300 font-urdu leading-[2.35]">
                           {goal.desc}
                         </p>
                       </div>

@@ -140,21 +140,21 @@ export default function Footer() {
                 <h5 className="text-sm font-urdu font-bold text-[#C9B38D] uppercase tracking-wider border-b border-[#C9B38D]/20 pb-2">
                   تربیتی و فکری مقاصد
                 </h5>
-                <ul className="space-y-2.5 text-xs sm:text-sm font-urdu text-stone-300">
+                <ul className="space-y-3 text-xs sm:text-sm font-urdu text-stone-300">
                   <li>
-                    <a href="#about" className="hover:text-[#C9B38D] transition">قرآن و علومِ آلِ محمدؑ</a>
+                    <a href="/#about" className="hover:text-[#C9B38D] transition leading-[2.2]">قرآن و علومِ آلِ محمدؑ</a>
                   </li>
                   <li>
-                    <a href="#about" className="hover:text-[#C9B38D] transition">تربیتِ اخلاق و کردار سازی</a>
+                    <a href="/#about" className="hover:text-[#C9B38D] transition leading-[2.2]">تربیتِ اخلاق و کردار سازی</a>
                   </li>
                   <li>
-                    <a href="#about" className="hover:text-[#C9B38D] transition">فقہی و عقائدی پختگی</a>
+                    <a href="/#about" className="hover:text-[#C9B38D] transition leading-[2.2]">فقہی و عقائدی پختگی</a>
                   </li>
                   <li>
-                    <a href="#about" className="hover:text-[#C9B38D] transition">خدمتِ دین و انسانیت</a>
+                    <a href="/#about" className="hover:text-[#C9B38D] transition leading-[2.2]">خدمتِ دین و انسانیت</a>
                   </li>
                   <li>
-                    <a href="#about" className="hover:text-[#C9B38D] transition">جدید فکری و عصری شعور</a>
+                    <a href="/#about" className="hover:text-[#C9B38D] transition leading-[2.2]">جدید فکری و عصری شعور</a>
                   </li>
                 </ul>
               </div>
@@ -164,21 +164,21 @@ export default function Footer() {
                 <h5 className="text-sm font-urdu font-bold text-[#C9B38D] uppercase tracking-wider border-b border-[#C9B38D]/20 pb-2">
                   فوری رسائی
                 </h5>
-                <ul className="space-y-2.5 text-xs sm:text-sm font-urdu text-stone-300">
+                <ul className="space-y-3 text-xs sm:text-sm font-urdu text-stone-300">
                   <li>
-                    <a href="#hero" className="hover:text-[#C9B38D] transition">صفحۂ اول</a>
+                    <a href="/#hero" className="hover:text-[#C9B38D] transition leading-[2.2]">صفحۂ اول</a>
                   </li>
                   <li>
-                    <a href="#about" className="hover:text-[#C9B38D] transition">ہمارے بارے میں</a>
+                    <a href="/policy" className="hover:text-[#C9B38D] transition leading-[2.2]">تعارف و مقاصد</a>
                   </li>
                   <li>
-                    <a href="#donation" className="hover:text-[#C9B38D] transition">عطیات و صدقات</a>
+                    <a href="/library" className="hover:text-[#C9B38D] transition leading-[2.2]">کتب خانہ و لائبریری</a>
                   </li>
                   <li>
-                    <a href="#testimonials" className="hover:text-[#C9B38D] transition">تاثرات و پیغامات</a>
+                    <a href="/#donation" className="hover:text-[#C9B38D] transition leading-[2.2]">عطیات و صدقات</a>
                   </li>
                   <li>
-                    <a href="#contact" className="hover:text-[#C9B38D] transition">رابطہ و پتہ</a>
+                    <a href="/#contact" className="hover:text-[#C9B38D] transition leading-[2.2]">رابطہ و پتہ</a>
                   </li>
                 </ul>
               </div>

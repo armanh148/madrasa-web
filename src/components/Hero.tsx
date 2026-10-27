@@ -78,7 +78,7 @@ export default function Hero({ onOpenAdmission, onOpenContact, onExploreCourses 
             {/* B. Main Title: Large, Prominent White & Dull Gold Typography */}
             <div className="space-y-6 sm:space-y-8 w-full">
               {/* Accessible Semantic Heading with Dull Gold Accent */}
-              <h1 className="urdu-title text-4xl sm:text-6xl lg:text-7xl leading-[1.8] select-none pb-2 sm:pb-3 text-white">
+              <h1 className="urdu-title text-4xl sm:text-6xl lg:text-7xl leading-[2.05] sm:leading-[2.15] select-none pb-2 sm:pb-3 text-white">
                 <span>مدرسہ صاحب الزمان</span>
                 <span className="inline-block mr-3 sm:mr-5 text-2xl sm:text-4xl lg:text-5xl text-[#C9B38D] font-bold">
                   (عج)

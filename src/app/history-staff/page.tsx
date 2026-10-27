@@ -365,15 +365,15 @@ export default function HistoryStaffPage() {
                           </span>
                         </div>
 
-                        <h3 className="text-xl sm:text-2xl font-urdu font-bold text-white mb-2 leading-[1.8]">
+                        <h3 className="text-xl sm:text-2xl font-urdu font-bold text-white mb-2.5 leading-[2.1]">
                           {item.title}
                         </h3>
 
-                        <h4 className="text-xs sm:text-sm font-urdu font-semibold text-[#D9C7A7] mb-3">
+                        <h4 className="text-xs sm:text-sm font-urdu font-semibold text-[#D9C7A7] mb-3 leading-[2.0]">
                           {item.subtitle}
                         </h4>
 
-                        <p className="text-xs sm:text-sm text-stone-300 font-urdu leading-[2.2]">
+                        <p className="text-xs sm:text-sm text-stone-300 font-urdu leading-[2.4]">
                           {item.description}
                         </p>
                       </div>

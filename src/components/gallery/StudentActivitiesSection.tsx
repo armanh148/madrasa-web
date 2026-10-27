@@ -75,13 +75,13 @@ export default function StudentActivitiesSection() {
             <span className="font-urdu">نشاط و جسمانی صحت</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-urdu font-bold text-white pt-2 leading-[1.8]">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-urdu font-bold text-white pt-2 leading-[2.1] sm:leading-[2.2]">
             بچوں کے <span className="text-[#C9B38D]">کھیل کود اور سرگرمیاں</span>
           </h2>
 
           <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#C9B38D] to-transparent mx-auto rounded-full my-4 shadow-[0_0_12px_rgba(201,179,141,0.5)]" />
 
-          <p className="text-sm sm:text-base md:text-lg text-[#FAF7F2] font-urdu leading-[2.2] sm:leading-[2.4] max-w-2xl mx-auto font-medium">
+          <p className="text-sm sm:text-base md:text-lg text-[#FAF7F2] font-urdu leading-[2.4] sm:leading-[2.6] max-w-2xl mx-auto font-medium">
             تعلیم و تربیت کے ساتھ ساتھ طلبہ کی جسمانی تندرستی، کرکٹ، بیڈمنٹن اور دوستانہ مقابلوں کی پُرشوق جھلکیاں
           </p>
         </div>
@@ -122,10 +122,10 @@ export default function StudentActivitiesSection() {
               <span className="inline-block text-xs font-urdu font-semibold text-[#C9B38D] bg-[#24130A] px-3 py-1 rounded-full border border-[#C9B38D]/30 mb-2">
                 {activities[0].category}
               </span>
-              <h3 className="font-urdu font-bold text-white text-xl sm:text-2xl leading-[1.8] group-hover:text-[#D9C7A7] transition-colors">
+              <h3 className="font-urdu font-bold text-white text-xl sm:text-2xl leading-[2.1] group-hover:text-[#D9C7A7] transition-colors">
                 {activities[0].title}
               </h3>
-              <p className="font-urdu text-xs sm:text-sm text-stone-200 mt-2 leading-[2.2]">
+              <p className="font-urdu text-xs sm:text-sm text-stone-200 mt-2.5 leading-[2.3]">
                 {activities[0].description}
               </p>
             </div>
@@ -185,10 +185,10 @@ export default function StudentActivitiesSection() {
                 <span className="text-[11px] font-urdu font-semibold text-[#C9B38D] block mb-1">
                   {item.category}
                 </span>
-                <h4 className="font-urdu font-bold text-white text-base leading-[1.8] group-hover:text-[#D9C7A7] transition-colors min-h-[46px] flex items-center">
+                <h4 className="font-urdu font-bold text-white text-base leading-[2.1] group-hover:text-[#D9C7A7] transition-colors min-h-[56px] flex items-center">
                   {item.title}
                 </h4>
-                <p className="font-urdu text-xs text-stone-300 mt-2 leading-[2.0] line-clamp-2">
+                <p className="font-urdu text-xs text-stone-300 mt-2.5 leading-[2.3] line-clamp-2">
                   {item.description}
                 </p>
               </div>

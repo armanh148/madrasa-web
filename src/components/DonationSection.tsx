@@ -48,11 +48,11 @@ export default function DonationSection({ onOpenDonationModal }: DonationSection
             <Sparkles className="w-4 h-4 text-[#C9B38D]" />
             <span className="font-urdu">صدقہ جاریہ و خیرات</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-urdu font-bold text-white mb-5 leading-[1.7] pt-2">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-urdu font-bold text-white mb-5 leading-[2.1] sm:leading-[2.2] pt-2">
             اپنا عطیہ اور <span className="text-[#C9B38D]">صدقات پیش کریں</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#C9B38D] to-transparent mx-auto rounded-full my-5 shadow-[0_0_12px_rgba(201,179,141,0.5)]" />
-          <p className="text-base sm:text-lg md:text-xl text-stone-200 font-urdu leading-[2] max-w-2xl mx-auto font-normal">
+          <p className="text-base sm:text-lg md:text-xl text-stone-200 font-urdu leading-[2.4] sm:leading-[2.6] max-w-2xl mx-auto font-normal">
             دینی طلباء کی تعلیم و کفالت، دسترخوانِ امام زمانہؑ، اور کتب خانہ کے امور میں آپ کا مخلصانہ تعاون صدقہ جاریہ اور آخرت کا بہترین ذخیرہ ہے۔
           </p>
         </div>

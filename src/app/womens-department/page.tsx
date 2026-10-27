@@ -237,13 +237,13 @@ export default function WomensDepartmentPage() {
               <span className="font-urdu">اہم کورسز و سرگرمیاں</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-urdu font-bold text-white pt-2 leading-[1.8]">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-urdu font-bold text-white pt-2 leading-[2.1] sm:leading-[2.2]">
               شعبہ خواتین کی <span className="text-[#C9B38D]">اہم خدمات و سرگرمیاں</span>
             </h2>
 
             <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#C9B38D] to-transparent mx-auto rounded-full my-4 shadow-[0_0_12px_rgba(201,179,141,0.5)]" />
 
-            <p className="text-sm sm:text-base md:text-lg text-stone-300 font-urdu leading-[2.2] sm:leading-[2.4] max-w-2xl mx-auto font-medium">
+            <p className="text-sm sm:text-base md:text-lg text-stone-300 font-urdu leading-[2.4] sm:leading-[2.6] max-w-2xl mx-auto font-medium">
               دینی درسگاہ سے لے کر غسل و کفن کی عملی تربیت اور روح پرور مجالس و اجتماعات کا منظم نظام
             </p>
           </div>
@@ -266,15 +266,15 @@ export default function WomensDepartmentPage() {
                     </div>
                   </div>
 
-                  <h3 className="font-urdu font-bold text-white text-xl sm:text-2xl leading-[1.8] group-hover:text-[#D9C7A7] transition-colors mb-2 text-right">
+                  <h3 className="font-urdu font-bold text-white text-xl sm:text-2xl leading-[2.1] group-hover:text-[#D9C7A7] transition-colors mb-2.5 text-right">
                     {act.title}
                   </h3>
 
-                  <h4 className="text-xs sm:text-sm font-urdu font-semibold text-[#C9B38D] mb-4 text-right">
+                  <h4 className="text-xs sm:text-sm font-urdu font-semibold text-[#C9B38D] mb-3.5 leading-[2.0] text-right">
                     {act.subtitle}
                   </h4>
 
-                  <p className="text-xs sm:text-sm text-stone-300 font-urdu leading-[2.2] text-right mb-6">
+                  <p className="text-xs sm:text-sm text-stone-300 font-urdu leading-[2.35] text-right mb-6">
                     {act.description}
                   </p>
 

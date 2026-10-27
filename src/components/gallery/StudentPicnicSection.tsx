@@ -70,13 +70,13 @@ export default function StudentPicnicSection() {
             <span className="font-urdu">یادگار لمحات و تفریح</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-urdu font-bold text-white pt-2 leading-[1.8]">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-urdu font-bold text-white pt-2 leading-[2.1] sm:leading-[2.2]">
             بچوں کی <span className="text-[#C9B38D]">پکنک کی تصویریں اور ویڈیوز</span>
           </h2>
 
           <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#C9B38D] to-transparent mx-auto rounded-full my-4 shadow-[0_0_12px_rgba(201,179,141,0.5)]" />
 
-          <p className="text-sm sm:text-base md:text-lg text-[#FAF7F2] font-urdu leading-[2.2] sm:leading-[2.4] max-w-2xl mx-auto font-medium">
+          <p className="text-sm sm:text-base md:text-lg text-[#FAF7F2] font-urdu leading-[2.4] sm:leading-[2.6] max-w-2xl mx-auto font-medium">
             مدرسے کے بچوں کے تفریحی دوروں، ساحلِ سمندر کی پکنک، اور قدرتی مناظر میں گزارے ہوئے ناقابلِ فراموش ایام
           </p>
         </div>
@@ -127,10 +127,10 @@ export default function StudentPicnicSection() {
                 {/* Polaroid Handwritten-Style Caption Area */}
                 <div className="pt-3.5 px-1 text-right flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="font-urdu font-bold text-[#140B06] text-sm sm:text-base leading-[1.7] group-hover:text-[#8C6D3F] transition-colors line-clamp-2">
+                    <h3 className="font-urdu font-bold text-[#140B06] text-sm sm:text-base leading-[2.1] group-hover:text-[#8C6D3F] transition-colors line-clamp-2">
                       {item.title}
                     </h3>
-                    <p className="font-urdu text-xs text-stone-600 mt-1 line-clamp-1">
+                    <p className="font-urdu text-xs text-stone-600 mt-2 leading-[2.1] line-clamp-1">
                       {item.location}
                     </p>
                   </div>

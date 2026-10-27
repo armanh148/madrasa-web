@@ -57,11 +57,11 @@ export default function Navbar({ onOpenAdmission, onOpenDonation, onOpenContact 
                   priority
                 />
               </div>
-              <div className="hidden sm:flex flex-col justify-center text-right gap-0.5">
-                <span className="font-urdu text-sm lg:text-base font-bold text-white group-hover:text-[#D9C7A7] transition-colors leading-normal">
+              <div className="hidden sm:flex flex-col justify-center text-right gap-1">
+                <span className="font-urdu text-sm lg:text-base font-bold text-white group-hover:text-[#D9C7A7] transition-colors leading-[1.8]">
                   مدرسہ صاحب الزمان
                 </span>
-                <span className="text-[10px] text-[#C9B38D] font-cairo leading-normal">
+                <span className="text-[11px] text-[#C9B38D] font-urdu leading-[1.6]">
                   (عجل اللہ تعالیٰ فرجہ الشریف)
                 </span>
               </div>
@@ -76,10 +76,10 @@ export default function Navbar({ onOpenAdmission, onOpenDonation, onOpenContact 
               <a
                 key={link.name}
                 href={link.href}
-                className="text-white hover:text-[#D9C7A7] transition-colors relative group py-1 font-medium"
+                className="text-white hover:text-[#D9C7A7] transition-colors relative group py-1.5 font-medium leading-[2.0]"
               >
                 {link.name}
-                <span className="absolute bottom-0 right-0 w-0 h-0.5 bg-[#C9B38D] transition-all duration-300 group-hover:w-full" />
+                <span className="absolute -bottom-1 right-0 w-0 h-0.5 bg-[#C9B38D] transition-all duration-300 group-hover:w-full" />
               </a>
             ))}
           </nav>

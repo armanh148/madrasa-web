@@ -78,13 +78,13 @@ export default function CelebrationsGallerySection() {
             <span className="font-urdu">تقاریب و یادگار ایام</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-urdu font-bold text-white pt-2 leading-[1.8]">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-urdu font-bold text-white pt-2 leading-[2.1] sm:leading-[2.2]">
             بچوں کے <span className="text-[#C9B38D]">جشنوں اور تقاریب کی تصویریں و ویڈیوز</span>
           </h2>
 
           <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#C9B38D] to-transparent mx-auto rounded-full my-4 shadow-[0_0_12px_rgba(201,179,141,0.5)]" />
 
-          <p className="text-sm sm:text-base md:text-lg text-[#FAF7F2] font-urdu leading-[2.2] sm:leading-[2.4] max-w-2xl mx-auto font-medium">
+          <p className="text-sm sm:text-base md:text-lg text-[#FAF7F2] font-urdu leading-[2.4] sm:leading-[2.6] max-w-2xl mx-auto font-medium">
             جشنِ میلاد، سالانہ تقسیمِ اسناد، قرآنی مقابلے اور عمامہ پوشی کے شاندار اسٹیج و پُروقار لمحات
           </p>
         </div>
@@ -145,11 +145,11 @@ export default function CelebrationsGallerySection() {
                 </span>
               </div>
 
-              <h3 className="font-urdu font-bold text-white text-lg sm:text-2xl lg:text-3xl leading-[1.7] group-hover:text-[#D9C7A7] transition-colors">
+              <h3 className="font-urdu font-bold text-white text-lg sm:text-2xl lg:text-3xl leading-[2.1] sm:leading-[2.2] group-hover:text-[#D9C7A7] transition-colors">
                 {currentEvent.title}
               </h3>
 
-              <p className="font-urdu text-xs sm:text-sm text-stone-200 mt-2 leading-[2.2] max-w-4xl line-clamp-2">
+              <p className="font-urdu text-xs sm:text-sm text-stone-200 mt-2.5 leading-[2.3] max-w-4xl line-clamp-2">
                 {currentEvent.description}
               </p>
             </div>

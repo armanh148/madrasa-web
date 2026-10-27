@@ -1,1 +1,5 @@
-export { default } from "../policy/page";
+import { redirect } from "next/navigation";
+
+export default function IntroductionPage() {
+  redirect("/policy");
+}

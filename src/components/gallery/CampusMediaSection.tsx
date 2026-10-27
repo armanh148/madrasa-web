@@ -77,13 +77,13 @@ export default function CampusMediaSection() {
             <span className="font-urdu">بصری و ویڈیو مشاہدہ</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-urdu font-bold text-white pt-2 leading-[1.8]">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-urdu font-bold text-white pt-2 leading-[2.1] sm:leading-[2.2]">
             مدرسے کی <span className="text-[#C9B38D]">تصویریں اور ویڈیوز</span>
           </h2>
 
           <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#C9B38D] to-transparent mx-auto rounded-full my-4 shadow-[0_0_12px_rgba(201,179,141,0.5)]" />
 
-          <p className="text-sm sm:text-base md:text-lg text-[#FAF7F2] font-urdu leading-[2.2] sm:leading-[2.4] max-w-2xl mx-auto font-medium">
+          <p className="text-sm sm:text-base md:text-lg text-[#FAF7F2] font-urdu leading-[2.4] sm:leading-[2.6] max-w-2xl mx-auto font-medium">
             مدرسہ صاحب الزمان کی پروقار عمارت، جدید کلاس رومز، کمپیوٹر لیب اور روحانی ماحول کا تصویری و ویڈیو احاطہ
           </p>
         </div>
@@ -125,10 +125,10 @@ export default function CampusMediaSection() {
 
             {/* Bottom Caption */}
             <div className="relative z-10 p-5 sm:p-7 text-right">
-              <h3 className="font-urdu font-bold text-white text-lg sm:text-2xl leading-[1.8] group-hover:text-[#D9C7A7] transition-colors">
+              <h3 className="font-urdu font-bold text-white text-lg sm:text-2xl leading-[2.1] group-hover:text-[#D9C7A7] transition-colors">
                 {mediaList[0].title}
               </h3>
-              <p className="font-urdu text-xs sm:text-sm text-stone-200 mt-2 leading-[2.2] line-clamp-2">
+              <p className="font-urdu text-xs sm:text-sm text-stone-200 mt-2.5 leading-[2.3] line-clamp-2">
                 {mediaList[0].description}
               </p>
             </div>
@@ -168,10 +168,10 @@ export default function CampusMediaSection() {
 
               {/* Bottom Info */}
               <div className="relative z-10 p-4 text-right">
-                <h4 className="font-urdu font-bold text-white text-sm sm:text-base leading-[1.8] group-hover:text-[#D9C7A7] transition-colors">
+                <h4 className="font-urdu font-bold text-white text-sm sm:text-base leading-[2.05] group-hover:text-[#D9C7A7] transition-colors">
                   {item.title}
                 </h4>
-                <p className="font-urdu text-[11px] sm:text-xs text-stone-300 mt-1 leading-[2.0] line-clamp-1">
+                <p className="font-urdu text-[11px] sm:text-xs text-stone-300 mt-1.5 leading-[2.1] line-clamp-1">
                   {item.location}
                 </p>
               </div>

@@ -84,13 +84,13 @@ export default function LibraryGallerySection() {
             <span className="font-urdu">علم و تحقیق کا گہوارہ</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-urdu font-bold text-white pt-2 leading-[1.8]">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-urdu font-bold text-white pt-2 leading-[2.1] sm:leading-[2.2]">
             لائبریری کی <span className="text-[#C9B38D]">تصویریں و نوادرات</span>
           </h2>
 
           <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#C9B38D] to-transparent mx-auto rounded-full my-4 shadow-[0_0_12px_rgba(201,179,141,0.5)]" />
 
-          <p className="text-sm sm:text-base md:text-lg text-[#FAF7F2] font-urdu leading-[2.2] sm:leading-[2.4] max-w-2xl mx-auto font-medium">
+          <p className="text-sm sm:text-base md:text-lg text-[#FAF7F2] font-urdu leading-[2.4] sm:leading-[2.6] max-w-2xl mx-auto font-medium">
             مدرسہ صاحب الزمان کی عظیم الشان لائبریری، نایاب مخطوطات اور مطالعہ ہال کی تصویری جھلکیاں
           </p>
         </div>
@@ -167,10 +167,10 @@ export default function LibraryGallerySection() {
                     <span className="text-[11px] font-urdu font-semibold text-[#C9B38D] block mb-1">
                       {item.category}
                     </span>
-                    <h3 className="font-urdu font-bold text-white text-sm sm:text-base leading-[1.8] group-hover:text-[#D9C7A7] transition-colors line-clamp-2">
+                    <h3 className="font-urdu font-bold text-white text-sm sm:text-base leading-[2.1] group-hover:text-[#D9C7A7] transition-colors line-clamp-2">
                       {item.title}
                     </h3>
-                    <p className="font-urdu text-xs text-stone-300 mt-1 line-clamp-1">
+                    <p className="font-urdu text-xs text-stone-300 mt-2 leading-[2.1] line-clamp-1">
                       {item.location}
                     </p>
                   </div>
