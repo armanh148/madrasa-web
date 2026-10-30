@@ -1,0 +1,15 @@
+[
+  {
+    "id": "sub-101",
+    "donorName": "حاجی غلام عباس",
+    "phone": "+92 300 9876543",
+    "amount": "50,000",
+    "bankName": "Meezan Bank",
+    "transactionId": "TXN-98421045",
+    "donationType": "سہمِ امامؑ و دسترخوان",
+    "receiptImage": "",
+    "notes": "ماہانہ تعاون برائے طعام طلبہ",
+    "status": "verified",
+    "createdAt": "2026-10-27T04:46:51.202Z"
+  }
+]

@@ -1,0 +1,24 @@
+[
+  {
+    "id": "acc-1",
+    "bankName": "میزان بینک لمیٹڈ (Meezan Bank)",
+    "accountTitle": "Madarsa e Sahib uz Zaman Trust",
+    "accountNumber": "02010108923451",
+    "iban": "PK36MEZN0002010108923451",
+    "branch": "احسن آباد برانچ، کراچی",
+    "swiftCode": "MEZNPKKA",
+    "purpose": "سہمِ امامؑ، سہمِ سادات، دسترخوان اور امدادِ طلباء",
+    "isActive": true
+  },
+  {
+    "id": "acc-2",
+    "bankName": "جاز کیش / ایزی پیسہ (JazzCash / EasyPaisa)",
+    "accountTitle": "مدرسہ صاحب الزمان ٹرسٹ",
+    "accountNumber": "0300-1234567",
+    "iban": "فوری والٹ ٹرانسفر",
+    "branch": "ڈیجیٹل والٹ",
+    "swiftCode": "-",
+    "purpose": "تعاون برائے طعام و نصاب کتب",
+    "isActive": true
+  }
+]

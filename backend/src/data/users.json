@@ -1,0 +1,10 @@
+[
+  {
+    "id": "admin-1",
+    "name": "ایڈمنسٹریٹر مدرسہ",
+    "email": "admin@sahibuzzaman.org",
+    "password": "$2b$10$1B2jh.KQXCqDSWyXP1hHv.mS1yR3217gIcLP33zqAb6Aww1yNuR/K",
+    "role": "admin",
+    "createdAt": "2026-10-30T04:46:51.201Z"
+  }
+]

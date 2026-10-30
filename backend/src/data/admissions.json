@@ -1,0 +1,53 @@
+[
+  {
+    "id": "MSZ-841920",
+    "fullName": "علی رضا کاظمی",
+    "fatherName": "سید محمد کاظمی",
+    "age": 14,
+    "gender": "طالب علم (مرد)",
+    "phone": "+92 300 1234567",
+    "city": "کراچی",
+    "selectedCourse": "شعبہ درسِ نظامی (حوزوی علوم)",
+    "previousEducation": "چھٹی جماعت پاس",
+    "residenceType": "رہائشی (ہاسٹل و طعام)",
+    "message": "میں حوزوی تعلیم حاصل کر کے دینِ اسلام کی خدمت کرنا چاہتا ہوں۔",
+    "status": "pending",
+    "interviewDate": "",
+    "notes": "",
+    "createdAt": "2026-10-28T04:46:51.202Z"
+  },
+  {
+    "id": "MSZ-519283",
+    "fullName": "زہراء بتول",
+    "fatherName": "غلام مرتضیٰ",
+    "age": 16,
+    "gender": "طالبہ (خاتون - جامعہ زہراء)",
+    "phone": "+92 321 9876543",
+    "city": "لاہور",
+    "selectedCourse": "شعبہ عقائد، اخلاق و معارف اہلِ بیتؑ",
+    "previousEducation": "میٹرک (Matric)",
+    "residenceType": "آن لائن / فاصلاتی",
+    "message": "آن لائن کلاسز کے ذریعے عقائد اور اخلاق کی تعلیم حاصل کرنا مقصود ہے۔",
+    "status": "interview_scheduled",
+    "interviewDate": "2026-11-05 11:00 AM",
+    "notes": "امیدوار کا تعلیمی ریکارڈ تسلی بخش ہے۔",
+    "createdAt": "2026-10-25T04:46:51.202Z"
+  },
+  {
+    "id": "MSZ-230911",
+    "fullName": "محمد مہدی رضوی",
+    "fatherName": "سید باقر رضوی",
+    "age": 13,
+    "gender": "طالب علم (مرد)",
+    "phone": "+92 333 4567890",
+    "city": "راولپنڈی",
+    "selectedCourse": "شعبہ حفظ و تجوید القرآن",
+    "previousEducation": "چھٹی جماعت پاس",
+    "residenceType": "رہائشی (ہاسٹل و طعام)",
+    "message": "حفظ القرآن کے ساتھ تجوید مکمل کرنا چاہتا ہوں۔",
+    "status": "approved",
+    "interviewDate": "2026-10-25",
+    "notes": "انٹرویو کامیاب، فیس ادا کر دی گئی ہے۔",
+    "createdAt": "2026-10-22T04:46:51.202Z"
+  }
+]
